@@ -1,0 +1,328 @@
+//1.a
+
+public class Dada {
+ private static String[] rs;
+ /** Prints out the given array, i.e. if d contains two Strings
+ * with names "alice" and "bob", this method will print "alice bob ".
+ */
+ private static void printStringArray(String[] s) {
+     for (int i = 0; i < s.length; i += 1) {
+         System.out.print(s[i] + " "); }
+         System.out.println();
+     }
+     public static void main(String[] args) {
+         String a = "alice";
+         String b = "bob";
+         String c = "carol";
+         String d = "dan";
+         String[][] twod = {{a, b}, {c, d}};
+         String[] X = twod[1];
+ printStringArray(X); //carol dan
+ Dada.rs = X;
+ String[] Y = Dada.rs;
+ Y = new String[]{d, c};
+ Dada.rs[1] = "eve";
+ printStringArray(Dada.rs); // carol eve
+ printStringArray(Y); // dan carol
+ printStringArray(twod[0]); //alice bob
+ printStringArray(twod[1]); //carol eve
+}
+
+
+//1.b
+private static void fillMany(String[] d) {
+ System.arraycopy(Dada.rs, 0, d, 0, d.length);
+}
+private static void fillOne(String d) { d = Dada.rs[0]; }
+public static void main(String[] args) {
+ String a = "alice";
+ String b = "bob";
+ String c = "carol";
+ String d = "dan";
+ String[][] twod = {{a, b}, {c, d}};
+ Dada.rs = new String[]{"fritz", "gritz"};
+ String[] X = twod[0];
+ printStringArray(X); //alice bob
+ fillOne(X[0]);
+ printStringArray(X); //alice bob
+ fillMany(X);
+ printStringArray(X); //fritz gritz
+
+}
+
+//2.a
+public static int f(int x) {
+ if (x == 1) {
+     return 1;
+ }
+ return 2 * f(x / 2);
+}
+
+// for x >= 1, returns 2^n with max n that less than x. (n>=0)
+// for x < 1; infinite loop
+
+//2.b
+
+public static void g(IntList x) { if (x == null) { return; } g(x.rest);
+x.rest = x;
+}
+
+
+// with [3, point to itself]
+
+
+//3. Key Gate
+
+// sb: static -> StandardBox, Dynamic -> StandardBox
+// sbbb: static -> StandardBox, Dynamic -> BioBox
+// bb static -> BioBox, Dynamic -> BioBox
+// k: Key,
+// sk: Key -> SkeletonKey
+// f: fingerprint
+
+public static void doStuff(Key k, SkeletonKey sk, Fingerprint f) { 
+    StandardBox sb = new StandardBox();
+    StandardBox sbbb = new BioBox();
+    BioBox bb = new BioBox();
+sb.unlock(k);  // UK
+sbbb.unlock(k); // UK
+bb.unlock(k); // UK
+sb.unlock(sk); // UK
+sbbb.unlock(sk); // UK
+bb.unlock(sk); // USK 
+sb.unlock(f); // compile error
+sbbb.unlock(f); // compile error
+bb.unlock(f); //  UF
+bb = (BioBox) sbbb; // no error
+((StandardBox) bb).unlock(sk); // UK
+((StandardBox) sbbb).unlock(sk); // UK
+((BioBox) sb).unlock(sk); // runtime error
+}
+
+//4. Sans
+
+//(a)
+public static int[] sans(int[] x, int y) {
+
+    int[] xclean = new int[x.length];
+    int c = 0;
+    for (int i = 0; i < x.length; i += 1) {
+        if (x[i] != y) {
+            xclean[c] = x[i];
+            c++;
+        } }
+        int[] r = new int[c];
+        System.arraycopy(xclean, 0, r, 0, xclean.length);
+        return r;   
+    }
+// arraycopy parameters are:
+            // srcArr, srcStartIdx, destArr, destStartIdx, numToCopy
+// where src->source, dest->destination, Idx->index
+
+
+//(b)
+    public static IntList ilsans(IntList x, int y) {
+       if (x == null) {
+           return null
+       }
+       if (x.first == y) {
+           return ilsans(x.rest, y)
+       }
+       return new Intlist(x.first, ilsans(x.rest, y))
+   }
+
+//(c)
+
+   public static IntList dilsans(IntList x, int y) {
+       if (x == null) {
+        return null;
+    }
+    x.rest = dilsans(x.rest, y);
+    if (x.first == y) {
+       return x.rest;
+   }
+   return x;
+}
+
+//(d)
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class TestSans {
+   @Test
+ public void testSans() { // TEST THE ARRAY VERSION OF SANS
+   int[] x = {1, 2, 3, 4, 2};
+   int y = 2;
+   int[] expected = {1, 3, 4}
+   int[] actual = Sans.sans(x, y);
+   assertArrayEquals(expected, actual);
+}
+
+ @Test // TEST THE NON-DESTRUCTIVE INTLIST VERSION OF SANS
+ public void testIlsans() {
+   IntList x = IntList.of(3, 4, 5, 4);
+   int y = 4;
+   IntList expected = IntList.of(3, 5);
+   IntList actual = Sans.ilsans(x, y)
+   assertEquals(epxected, actual);
+   assertNotEquals(x, actual);
+}
+}
+
+//5. (a) 
+
+public class ArrayStack<Item> implements Stack<Item> {
+   private Item[] items;
+   private int size;
+ public ArrayStack() { // initial array size is 8
+   items = (Item[]) new Object[8];
+   size = 0;
+}
+ private void resize(int capacity) { // resizes array to given capacity
+   Item[] newItems = new (Items[]) new Object[capacity]; 
+   System.arraycopy(items, 0, newItems, 0, size);
+   items = newItems;
+}
+
+public void push(Item x) {
+   if (usageRatio() == 1) { resize(size * 2) }
+   items[size] = x;
+   size++;
+}
+ public Item pop() { // returns null if stack is empty
+   if (items == null) { return null; }
+   if (usageRatio() < 0.25 && items.length > 8) { reize(size / 2) }
+   size--;
+   Item item = items[size];
+   items[size] = null;
+   return item;
+}
+public int size() { return size; }
+private double usageRatio() { return ((double) size()) / items.length; }
+}
+
+//5. (b)
+// elegant method
+public interface Stack<Item> {
+ public void push(Item x);
+ public Item pop();
+ public int size();
+ public default void purge(Item x) {
+    Item top = pop();
+    purge(x)
+    if(!top.equals(x)){}
+    push(top);
+}
+}
+
+// less elegeant method
+
+public interface Stack<Item> {
+   public void push(Item x);
+   public Item pop();
+   public int size();
+   public default void purge(Item x) {
+
+    ArrayStack<Item> as = new ArrayStack<>();
+    while(size() != 0){
+        if(!pop().equals(x)){
+            as.push(x);
+        }
+    }
+
+    while(as.size() != 0){
+        push(as.pop());
+    }
+
+}
+}
+
+// 6. (a)
+public class Combine {
+ public static int combine(ComFunc f, int[] x) {
+     if (x.length == 0) {
+         return 0;
+     }
+     if (x.length == 1){
+         return x[0];
+     }
+     int returnValue = combine(f, x, 0, 0);
+     return returnValue;
+ }
+ // your private helper function cannot create new arrays (too slow)
+ private static int combine(ComFunc f, int[] x, int sum, int pos) {
+     if(pos == x.length){
+        return sum;
+    }
+
+    sum = f.apply(sum, int[pos]);
+    pos++;
+    combine(f, x, sum, pos);
+}
+}
+
+public class Add implements ComFunc {
+ public int apply(int a, int b) {
+     return a + b;
+ }
+}
+
+// (b)
+
+public static int sumAll(int[] x) { // sumAll is not a member of Combine
+ return Combine.combine(new Add(), x);
+}
+
+
+// 7(a)
+
+public interface ListOfInts {
+ public void addLast(int i);
+ public int get(int i);
+ public int size();
+ public void set(int i, int value);
+ default public void plusEquals(ListOfInts x) { // assume x is non-null
+     if (x.size() != this.size()){ return; }
+     for (int i = 0; i < x.size(); i++) {
+         this.set(i, this.get(i) + x.get(i));
+     }
+ }
+}
+
+// (b)
+public class DLListOfInts implements ListOfInts {
+ public class IntNode {
+     public int item;
+     public IntNode next, prev;
+ }
+ public IntNode sentinel;
+ public int size;
+ @Override
+ public void plusEquals(DLListOfInts x) {
+     if (this.size() != x.size() || x == null) {
+         return;
+     }
+     IntNode y = x.sentinel.next;
+     for (IntNode p = sentinel.next; p != sentinel; p = p.next) {
+         p.item += y.item;
+         y = y.next;
+     }
+ }
+
+ // (c)
+ public class PartC {
+/** Non-destructively computes the sum of the given lists. Assumes
+ * that all lists are of the same length and that none are null. */
+ public static DLListOfInts sumOfLists(DLListOfInts[] lists) {
+   ListOfInts result = lists[0];
+   for (int i = 1; i < lists.length; i += 1) {
+       result.plusEquals(lists[i]);
+   }
+   return result;
+}
+}
+
+// 1. This method is destructive;
+// 2. This method cannot deal with a lists with 0 length;
+// 3. This method returns ListOfInts which is not a father class of DLListOfInts -> This method cannot compile.
+// 4. This method calls the default plusEquals method -> it is slow
+

@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68e1e6e9-7e1c-4060-9290-63105f2151e0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/Breaking the System.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/out/production/Breaking the System/BadIntegerStack$Node.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/out/production/Breaking the System/BadIntegerStack.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/src/BadIntegerStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/src/GoodIntegerStack/GoodIntegerStack.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Breaking the System/src/GoodIntegerStack/GoodIntegerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="23P7ynkQtOLGK5QpRbsaZT2nNIS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="MTHome" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.testPunkRock.testRocks">
+    <configuration name="MommaRock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MommaRock" />
+      <module name="Immutable Rocks" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Rocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Immutable Rocks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="Rocks" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testPunkRock.testRocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Immutable Rocks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testPunkRock" />
+      <option name="METHOD_NAME" value="testRocks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testRocks.testRocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Immutable Rocks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testRocks" />
+      <option name="METHOD_NAME" value="testRocks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testSecretRocks.testRocks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Immutable Rocks" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testSecretRocks" />
+      <option name="METHOD_NAME" value="testRocks" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.testPunkRock.testRocks" />
+        <item itemvalue="Application.MommaRock" />
+        <item itemvalue="JUnit.testSecretRocks.testRocks" />
+        <item itemvalue="JUnit.testRocks.testRocks" />
+        <item itemvalue="JUnit.Rocks" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68e1e6e9-7e1c-4060-9290-63105f2151e0" name="Changes" comment="" />
+      <created>1641624124908</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641624124908</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/testSecretRocks.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/testPunkRock.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/testPunkRock.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MommaRock.java</url>
+          <line>5</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MommaRock.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MommaRock.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/MommaRock.java</url>
+          <line>4</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/testPunkRock.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

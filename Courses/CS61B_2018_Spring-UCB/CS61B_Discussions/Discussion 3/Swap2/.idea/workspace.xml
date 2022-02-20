@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1dcaec98-40b2-4b3c-9a99-4d68531524fd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Horse/out/production/Horse/Horse.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../QuikMaths/out/production/QuikMaths/QuikMaths.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Foo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Foo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Horse/src/Horse.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Horse/src/Horse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuikMaths/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../QuikMaths/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../QuikMaths/src/QuikMaths.java" beforeDir="false" afterPath="$PROJECT_DIR$/../QuikMaths/src/QuikMaths.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StaticShock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../StaticShock/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="217j1BkIffuYnoV0dKPXdqGc81m" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="GFG" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GFG" />
+      <module name="Swap2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GFG" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1dcaec98-40b2-4b3c-9a99-4d68531524fd" name="Changes" comment="" />
+      <created>1637298804681</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637298804681</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Swap2.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
