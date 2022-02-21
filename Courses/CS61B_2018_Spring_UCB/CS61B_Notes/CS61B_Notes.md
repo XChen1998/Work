@@ -4159,7 +4159,7 @@ public class SubList {
 
 This sublist method, however, is very useful because we can use it to reverse just a part of a list in a very generic method. Just take the desired sublist, reverse it, and return the whole. The following figures shows the logic behind:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/SubList1.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/SubList1.png?raw=true)
 
 ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/SubList2.png?raw=true)
 
@@ -4516,7 +4516,7 @@ It is lear that the number of comparision is $N(N - 1)/2$, which is a family of 
 
 **Method 1**: $C = 1 + 2 + 3 + 4 + ... + (N - 1) = N(N - 1)/2$;
 
-**Method 2**: A more intuitive geometirc method, from which we can easily see the area of the triangle is $N(N - 1)$.![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Geometric%20Method.png?raw=true)
+**Method 2**: A more intuitive geometirc method, from which we can easily see the area of the triangle is $N(N - 1)$.![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Geometric%20Method.png?raw=true)
 
 
 
@@ -4535,7 +4535,7 @@ public static void printParty(int N) {
 }
 ```
 
-Please note that we have to count the number of execution directly, without any simple method. So we write the table below to investigate its complexity behaviour as a function of $N$.![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Linear%20Loop.png?raw=true)
+Please note that we have to count the number of execution directly, without any simple method. So we write the table below to investigate its complexity behaviour as a function of $N$.![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Linear%20Loop.png?raw=true)
 
 So we can see that, despite there are two loops in this piece of code, the number of exectuion of the `print` statement is proportional to $N$. The exact relation is as follows:
 $$
@@ -4565,7 +4565,7 @@ public static int f3(int n) {
 }
 ```
 
- We should investigate the realationship between the number of function `f3` beeing executed and the number of $N$. The intuitive way is to draw a tree diagram as follows: ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Intuitive%20Tree.png?raw=true)
+ We should investigate the realationship between the number of function `f3` beeing executed and the number of $N$. The intuitive way is to draw a tree diagram as follows: ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Intuitive%20Tree.png?raw=true)
 
 Clearly, the number of execution goes up exponentially as $2^N$. And its time complexity is therefore $\Theta (2^N)$. There is an alternative way to calculate the number of exectuion using the recursive relationship as follows:
 $$
@@ -4603,13 +4603,13 @@ In selection sort, which we have introrudced in [section III.1](# 1. Selection S
 
 Now let us suppose we have an array of random 64 integers and we want sort it. Since the complexity of selection sort is $\Theta (N^2)$, it takes a run time of $64^2 AU$, which is $4096AU$. How about two arrays with each has 32 intergers? The run time will be $2096AU$. And for four arrays each witfh 16 integers, we will have a run time of $1024AU$. It looks like if we divide the original problem to small pieces,  we can make the processes easier. Unfortunately, if we do so, we will have to take the time of merging different arrays into consideration. The merging time, however, is proportional to the length of the two arrays that we want to merge, i.e. its time complexity is $\Theta (N)$. Here comes an idea called *divide and conquer*. We divide the original array into a series of small pieces, sort those sub-arrays, merge them, then everything is done, as shown in the figures below 
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Merge%20Sort%20Diagram.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Merge%20Sort%20Diagram.png?raw=true)
 
  For the mergeing processes , we have linear run time, and each layer has the same number of operations, which is $N$, the length of the array. The number of merging layers, however, depends on the length of array in another way, which is $log_2N$. The total time complexity of merge sort is therefore $\Theta (Nlog_2N)$, which is far better than $\Theta (N^2)$. The follwing figure demonstrate how time complexity can have a significant difference when $n$ gets larger.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Time%20Complexity%20Example.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Time%20Complexity%20Example.png?raw=true)
 
-The author's implementation of merge sort can be found in his [CS61B_Readings repository](https://github.com/XChen1998/CS61B_Readings) (the code is enclosed in the section 8 file). 
+The author's implementation of merge sort can be found in his [CS61B_Readings repository](https://github.com/XChen1998/Work/tree/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings) (the code is enclosed in the section 8 file). 
 
 
 
@@ -4821,7 +4821,7 @@ public class QuickFindDS implements DisjointSets {
 
 ### 3. Quick Union
 
-To further improve the efficiency of our data structure, we can now set the ID of an element to be its parent, which actually forms a data structure like trees. For example, a disjoint set made of `{{0, 1, 2, 4}, {3, 5}, {6}}` can be represented as:![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Quick%20Union%20Parent.png?raw=true)where `-1` indicates the root of a tree. Actually, we still represent the sets as an array. But a helper method is required to find the root of an element in order to implement the `isConnect` and the `connect` method. 
+To further improve the efficiency of our data structure, we can now set the ID of an element to be its parent, which actually forms a data structure like trees. For example, a disjoint set made of `{{0, 1, 2, 4}, {3, 5}, {6}}` can be represented as:![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Quick%20Union%20Parent.png?raw=true)where `-1` indicates the root of a tree. Actually, we still represent the sets as an array. But a helper method is required to find the root of an element in order to implement the `isConnect` and the `connect` method. 
 
 ```java
     private int find(int p) {
@@ -4864,19 +4864,19 @@ Since the `connect` and `isConnect` methods are largely based on the `find` meth
 
 ### 4. Weighted Quick Union (WQU)
 
-When we try to connect two sets `T1` and `T2`:![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/WQU%201.png?raw=true)
+When we try to connect two sets `T1` and `T2`:![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/WQU%201.png?raw=true)
 
 
 
 There are two possible options as follows:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/WQU%202.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/WQU%202.png?raw=true)
 
 
 
 In terms of avoiding unnecessarily tall tress, the second option is preferable. Intuitively, here comes an idea: **always connect the short tree to the tall tree.** However, this implementation can be too complicated. A similar but far easier option is to connect the smaller tree to the larger tree, where the size (number of elements) of a tree characterise its weight. The following figure indicates the huge advantage of weighted quick-union compared with quick union.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/WQU%20Advantage.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/WQU%20Advantage.png?raw=true)
 
 It it possible to prove that the maximum depth of the second setting is $\log_2 N$, which means that it can significantly reduce the runtime complexity of the `find` function to $O(\log N)$. 
 
