@@ -8041,7 +8041,7 @@ public class NumListQuestion {
 
 
 
-**For the rest of the author's solutions for discussion 15, please consult this [PDF](https://github.com/XChen1998/CS61B_Discussions/blob/main/Discussion%2015/Discussion%2015.pdf).**
+**For the rest of the author's solutions for discussion 15, please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2015/Discussion%2015.pdf).**
 
 
 
@@ -8279,7 +8279,7 @@ The `addHexagon` method firstly draws the bottom half and then draws the top hal
 
 Now, we want to draw a formatted pattern shown below, consisting of 19 hexagons:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/19.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/19.png?raw=true)
 
 Since we already know how to draw one hexagons, we can just add some private helper methods to locate the start point (i.e. the input `x` and `y` in the `addHexagon` method). 
 
@@ -8350,7 +8350,7 @@ public static int askForInput() {
 
 This method let the user to enter the length of the hexagon. An example output with length 5 is shown as follows:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Exmaple%2019.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Exmaple%2019.png?raw=true)
 
 
 
@@ -8559,7 +8559,7 @@ alice bob
 carol eve 
 ```
 
-Please note that `Array` is a data type that *pass-by-reference*. So the last statment `printStringArray(twod[1]);` outputs `carol eve `. This is because the value of `twod` is modified by the statement `Dada.rs[1] = "eve";`. The final box diagram is shown as follows (with `Data.rs = [carol, eve]`, and it has exactlly the same address as `X`):![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/DadaDiagram.png?raw=true)
+Please note that `Array` is a data type that *pass-by-reference*. So the last statment `printStringArray(twod[1]);` outputs `carol eve `. This is because the value of `twod` is modified by the statement `Dada.rs[1] = "eve";`. The final box diagram is shown as follows (with `Data.rs = [carol, eve]`, and it has exactlly the same address as `X`):![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/DadaDiagram.png?raw=true)
 
 
 
