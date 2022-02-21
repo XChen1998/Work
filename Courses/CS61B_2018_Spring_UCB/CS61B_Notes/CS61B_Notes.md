@@ -4920,9 +4920,9 @@ There are significant overlapping between this subsection and [Discussion 8.A](#
 
 ### 2. Binary Search Trees (BSTs)
 
-Please consult the pages 396-406 of the [algorithm book](https://github.com/XChen1998/CS61B_Readings/blob/master/Algorithms%204th%20Edition.pdf) (we will use *Algs* as its a.k.a in the rest of the note) for details. The full implement of such a tree can be found in the author's [*CS61B_Readings, section 11*](https://github.com/XChen1998/CS61B_Readings) repository  (This code is modified from the [*Algs website*](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BST.java.html)). The figure below shows the difference between runtime complexity of various data search methods.  
+Please consult the pages 396-406 of the [algorithm book](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) (we will use *Algs* as its a.k.a in the rest of the note) for details. The full implement of such a tree can be found in the author's [*CS61B_Readings, section 11*](https://github.com/XChen1998/Work/tree/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/11.%20Balanced%20Trees) repository  (This code is modified from the [*Algs website*](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/BST.java.html)). The figure below shows the difference between runtime complexity of various data search methods.  
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/BSTs%20runtime.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/BSTs%20runtime.png?raw=true)
 
 **Summary**
 
@@ -4949,9 +4949,9 @@ Please consult the pages 396-406 of the [algorithm book](https://github.com/XChe
 
 ### 1. Balanced Tree Operations
 
-Please consult the [*Algs*](https://github.com/XChen1998/CS61B_Readings/blob/master/Algorithms%204th%20Edition.pdf) 424-431 for details. The followings figures demonstrate the search and insert operation in different circumstances.
+Please consult the [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 424-431 for details. The followings figures demonstrate the search and insert operation in different circumstances.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/B%20Tree%20Operations.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/B%20Tree%20Operations.png?raw=true)
 
 
 
@@ -4959,7 +4959,7 @@ Please consult the [*Algs*](https://github.com/XChen1998/CS61B_Readings/blob/mas
 
 All the operations above preserve the global properties that the tree is still balanced, i.e. all null links have the same path length to the roof. The following figure shows two examples:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/2%203%20Tree%20Example.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/2%203%20Tree%20Example.png?raw=true)
 
 **Summary**
 
@@ -5001,7 +5001,7 @@ A RB-BST have treee key features as follows:
 
 From these properties, we can build the one-to-one correspondence between *B Trees* and RB-BSTs as shown below:
 
- ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/RBBST%20Correspondence.png?raw=true)
+ ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/RBBST%20Correspondence.png?raw=true)
 
 
 
@@ -5045,7 +5045,7 @@ From our intuition, the most important part of this program should be how to mai
 
 Here, we introduce the idea of always adding a new ndoe with a red link to its parent and then use some rotation magic to keep red links left leaning possible as shown in the figures below:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/RBBST%20Rotation.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/RBBST%20Rotation.png?raw=true)
 
 
 
@@ -5942,7 +5942,7 @@ private IntNode reverseR(IntNode p) {
 
 `p.next.next = p` statement reverses the pointer, the `reversed ` variable stores all list that has been reversed so far, setting `p.next = null` make sure that the final elements points to null. The box notation is shown below
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/SLListRecursive.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/SLListRecursive.png?raw=true)
 
 
 
@@ -7001,6 +7001,8 @@ This question is very similar to the previous one. We create a `temp` to store a
 >
 > • private: Accessible only by the class itself.
 
+
+
 a. Pebble
 
 ```Java
@@ -7331,7 +7333,7 @@ public class ExceptionsDemo {
 }
 ```
 
-Consider the code below. Recall that x / 2 rounds down to the nearest integer. What will be the output when main is run?
+Consider the code below. Recall that `x / 2` rounds down to the nearest integer. What will be the output when main is run?
 
 
 
@@ -7936,7 +7938,7 @@ The answer for the two questions are the same, $\Theta (N^2)$. To create a worst
 
 ### 14. Asymptotic Analysis II
 
-Please consult this [PDF](https://github.com/XChen1998/CS61B_Discussions/blob/main/Discussion%2014/Discussion%2014.pdf) for author's solutions of discussion 14. The Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/disc08sol.pdf).
+Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2014/Discussion%2014.pdf) for author's solutions of discussion 14. The Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/disc08sol.pdf).
 
 
 
