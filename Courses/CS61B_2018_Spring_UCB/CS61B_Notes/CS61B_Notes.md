@@ -5049,6 +5049,37 @@ Here, we introduce the idea of always adding a new ndoe with a red link to its p
 
 
 
+The corresponding codes are shown below:
+
+```Java
+    private Node rotateLeft(Node h){
+        Node x = h.right;
+        h.right = x.left;
+        x.left = h;
+        x.color = h.color;
+        h.color = RED;
+        h.N = size(h.left) + size(h.left) + 1;
+        x.N = h.N;
+        return x;
+    }
+
+    private Node rotateRight(Node h){
+        Node x = h.left;
+        h.left = x.right;
+        x.right = h;
+        x.color = h.color;
+        h.color = RED;
+        h.N = size(h.left) + size(h.right) + 1;
+        x.N = h.N
+    } 
+```
+
+
+
+
+
+
+
 ## *Extra*: Homeworks
 
 *This section includes most of the homework questions. Homework 0 is skipped.*

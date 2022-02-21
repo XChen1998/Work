@@ -153,6 +153,6 @@ public class Percolation {
     }
 
     public static void main(String[] args) {
-        PercolationStats test = new PercolationStats(10000, 2, new PercolationFactory());
+        PercolationStats test = new PercolationStats(100, 2, new PercolationFactory());
     }
 }
