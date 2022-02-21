@@ -5076,7 +5076,9 @@ The corresponding codes are shown below:
 
 
 
+Throw these rotating methods, we can implement basic insertion into a single 3-node:
 
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Insertion%20into%20A%20Single%203%20Node.png?raw=true)
 
 
 
