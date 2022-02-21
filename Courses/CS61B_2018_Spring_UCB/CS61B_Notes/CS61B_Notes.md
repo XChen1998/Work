@@ -42,7 +42,7 @@ From this very basic program, we can see that:
 
 The following flow chart indicates how Java program works.
 
-![Image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Java%20Work%20Flow.png?raw=true)
+![Image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Java%20Work%20Flow.png?raw=true)
 
 Java programs have to be compiled before running. So, to run the Hello World java program, the following commands are required:
 
@@ -216,11 +216,11 @@ System.out.println(b);
 
 In this example, the change to b affecd a. Because the `b = a` statement let both `a` and `b` point to the same object. **Please note that this does not indicates that Java can pass by reference, the fact is the value of `a` is an addresss, which leads to illusion that Java may copy by reference**. The figure below shows the data structure of a class in detail
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Walrus%20Data.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Walrus%20Data.png?raw=true)
 
 i.e. the `someWalrus` variables is like a pointer in C++. It stores a **64 bits address** that points to the instance. The walrus instance itself has two variables (two boxes), which stores the **value** of its weight and tuskSize, respectively. The assignment `b = a`  let `b` points to the same instance as `a`.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/AB.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/AB.png?raw=true)
 
 ```java
 int x = 5;
@@ -275,7 +275,7 @@ double y;
 
 in Java. You get two boxes of size 32 and 64 respectively. 
 
-![Image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Boexes.png?raw=true)
+![Image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Boexes.png?raw=true)
 
 There is no way to know the exact address of these variables unlike C++. The exact memory address is below hte level of abstracton. This feature of Java is a tradeoff. We lose the ability to manage memory usage but at the same time, this avoid some annoying memory management issues.
 
@@ -288,7 +288,7 @@ y = 567213.112;
 
  Then the memory boxes are filled with some binary digits,
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Binary%20digits.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Binary%20digits.png?raw=true)
 
 which represent the corresponding value of `x` and `y`.
 
@@ -307,7 +307,7 @@ y = 567213.112;
 
 we use 
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Simplified%20Box%20Notation.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Simplified%20Box%20Notation.png?raw=true)
 
 to show the data storage.
 
@@ -372,7 +372,7 @@ x = new int[]{0, 1, 2, 95, 4};
 
 Since the input has 5 elements, the `new` keyword creates 5 boxes of 32 bits each and returns the addresss of the overall object for assignment to `x`.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/arrays.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/arrays.png?raw=true)
 
 
 
@@ -589,7 +589,7 @@ int x = L.first;
 
 The following two figures indicates the difference between the two data structure.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/IntListvsSLList.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/IntListvsSLList.png?raw=true)
 
 Basically, the `Sllist` class is a middleman that hide all the awkward features of `IntList`. Also, the `addFirst` method in `IntList` is rather tricky. You have to set rest before setting first, otherwise the information of the original first is discarded.
 
@@ -614,7 +614,7 @@ L.first.next.next = L.first.next;
 
 which voids our effort to make the class elegant and reasonable. Also, it may lead to very dangerous operations like malformed list with an infinite loop.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Infinite%20loop.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Infinite%20loop.png?raw=true)
 
 Fortunately, this issue can be easily solved by changing the **access modifier** before the class variable `first`.
 
@@ -1271,13 +1271,13 @@ public void addLast(int x) {
 
 This saves a huge amount of time, because it almost makes the time complexity $O(h)$. The figure below demonstrate the difference between `SLList` and the naive  `AList`. The modified `AList` has a similar performance as `SLList`.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/TimeComplexity.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/TimeComplexity.png?raw=true)
 
 #### D. Memory Performance
 
 Despite the geometric resizing significantly lower the time complexity. It, at the same time, create much more boxes than we really need, especially when a lot of the elements are deleted in a later time.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/MemoryPerformance.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/MemoryPerformance.png?raw=true)
 
 In this case, we need to shrink our array. For example, the typical implementation is to halve the size of the array when R falls to less than 0.25, as shown in the following pseudo code.
 
@@ -1690,7 +1690,7 @@ These words form a hierarchy of "is-a" relationships:
 
 So we can create our class hierarchy 
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Subclass.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Subclass.png?raw=true)
 
 The `List61B` is the a interface. And we add some methods in this superclass
 
@@ -1773,7 +1773,7 @@ public void print() {
 
 But how is that possible? How does Java.know which function to call? A new concept, **dynamic method selection**, should therefore be introduced. In addition to the **static type** of a variable, there is also a run-time **dynamic type**. So the Java compiler knows that the variable has a `List61B` **static type** and a run-time `SLList` **dynamic type**. This is the key to implement run-time polymorphism. 
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/DynamicType.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/DynamicType.png?raw=true)
 
 **IMPORTANT: This does not work for overloaded methods!** This statment looks ambiguous, so let us demonstrate this fact with an example.
 
@@ -1809,9 +1809,9 @@ At this point, `SP` and `LP` are `SLList` and `List61B` in terms of static type,
 #### F. The Conclusion of Interface Inheritance and Implementation Inheritance
 
 - Interface inheritance (what): Simply tells what the subclasses should be able to do.
-  - EX) all lists should be able to print themselves, how they do it is up to them.
+  -  all lists should be able to print themselves, how they do it is up to them.
 - Implementation inheritance (how): Tells the subclasses how they should behave.
-  - EX) Lists should print themselves exactly this way: by getting each element in order and then printing them.
+  -  Lists should print themselves exactly this way: by getting each element in order and then printing them.
 
 Please note that, the relatioship between superclass and subclass is **is-a**, instead of **has-a**. For examples, `ALList` **is a** `List61B`, but we cannot do `cat` **has a** `claw`.
 
@@ -1854,7 +1854,7 @@ public class RotatingSLList<Item> extends SLList<Item> {
 
 
 
-The class hierarchy looks like this ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Class%20Hierarchy.png?raw=true)
+The class hierarchy looks like this ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Class%20Hierarchy.png?raw=true)
 
 So basically, `AList`  and `SLList` implement `List61B` and `RotatingSLList` class extends the `SLList` class. In the new subclass, all the functions fo `SLList` is preserved and new method may be introduced. 
 
@@ -1994,7 +1994,7 @@ As seen in the [documentation for the Object class](https://docs.oracle.com/java
 
 
 
-In our case, the structure is shown in the following figure.![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/ObjectClassModified.png?raw=true)
+In our case, the structure is shown in the following figure.![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/ObjectClassModified.png?raw=true)
 
 The author wants to emphasie again that both keywords `extends` and `implements` defines *is-a* relationship rather than *has-a*.
 
@@ -2005,7 +2005,7 @@ The author wants to emphasie again that both keywords `extends` and `implements`
 
 #### E. Encapsulation
 
-The idea of encapsulation is make your class like a pre-defined tool. A user does not need to know any knowledge of the information inside the class. ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Encapsulation.png?raw=true)
+The idea of encapsulation is make your class like a pre-defined tool. A user does not need to know any knowledge of the information inside the class. ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Encapsulation.png?raw=true)
 
 Take our `ArrayDeque` as an example, the hidden `Item` variable is almost not readable, but with our helper method, the user can manipulate an `ArrayDeque` easily. In the author's opinion, **the philosophy of encapsulation is to make our class easy to use (since we have helper methods for users), at the same time, hard to break (since we do not give users access to the hidden information. i.e. we add many `private` access modifier)**.
 
@@ -2306,7 +2306,7 @@ public static Dog maxDog(Dog[] dogs) {
 
 
 
-The essential reason why we cannot write a generic method to compare objects is that we cannot overload operator, unlike C++  (This is a major feature of C++). So the `>` operation can only be apply to some specific types of variables, which makes the generic `>` operator impossible to implement. We, however, can bypass the `>` operator by using interface as following ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/compareTo.png?raw=true)
+The essential reason why we cannot write a generic method to compare objects is that we cannot overload operator, unlike C++  (This is a major feature of C++). So the `>` operation can only be apply to some specific types of variables, which makes the generic `>` operator impossible to implement. We, however, can bypass the `>` operator by using interface as following ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/compareTo.png?raw=true)
 
 We first create our interface :
 
@@ -2437,7 +2437,7 @@ So what if we were to omit the `implemnts ` from the header of the `Dog` class. 
 
 *Cast* is a very dangerous manipulation in Java, it may lead to significant run-time error. Also, no existing classes implemnt `OurComparable`(e.g. String). So our code is yet not elegant. So what is the way out? There is an interface that already exists called `Comparable` in Java. It is well-defined and appears in many libraries.
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Comparable.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Comparable.png?raw=true)
 
 There is only a small difference between the two pieces of code, but it has a significant impact. The `Comparable<T>` declaration avoids an casting. So the `Dog` class becomes:
 
@@ -2460,7 +2460,7 @@ public static Comparable max(Comparable[] items) {
         if (cmp > 0) {
             maxDex = i;
         }
-    }
+    }wojued
     return items[maxDex];
 }
 ```
@@ -2469,7 +2469,7 @@ public static Comparable max(Comparable[] items) {
 
 The following figures shows the structure difference between `Comparable` and `OurComparable`:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/DifferenceOCC.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/DifferenceOCC.png?raw=true)
 
 
 
@@ -2564,7 +2564,7 @@ public class DogLauncher {
 }
 ```
 
-Please note how we use `Comparator` father class container to store `SizeComparator` and `NameComparator` subclass. The class hierarchy now looks like:![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/ComparatorDiagram.png?raw=true)
+Please note how we use `Comparator` father class container to store `SizeComparator` and `NameComparator` subclass. The class hierarchy now looks like:![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/ComparatorDiagram.png?raw=true)
 
 
 
@@ -2582,7 +2582,7 @@ Please note that the `Dog` class is not part of the class hierarchy. It is a sub
 
 #### A. Abstract Data Types (ADTS)
 
-For now, we have seen some *abstract data type* like [`List61B`](#B. Hypernyms, Hyponyms, and Interface Inheritance) or `Deque`. ![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Abstract.png?raw=true)
+For now, we have seen some *abstract data type* like [`List61B`](#B. Hypernyms, Hyponyms, and Interface Inheritance) or `Deque`. ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Abstract.png?raw=true)
 
 We have the following methods without defnitions in the `Deque` interface:
 
@@ -2684,7 +2684,7 @@ Again, we can easily solve the problem by using the built-in interface `Map`. A 
 
 Now, let's review the structur of these classs and interfaces:
 
-![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/interfaceandclass.png?raw=true)
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/interfaceandclass.png?raw=true)
 
 This hierarchy looks fantastic and reasonable. The `Collection` interface is a rather vague. The official statement is that: 
 
@@ -2694,7 +2694,7 @@ This hierarchy looks fantastic and reasonable. The `Collection` interface is a r
 
 #### C. Java vs. Python
 
-Basically, the equivallent Python code for the `collectWordCount` looks net and tidy, whereas the Java code looks very cumbersome.![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/javaandpython.png?raw=true)
+Basically, the equivallent Python code for the `collectWordCount` looks net and tidy, whereas the Java code looks very cumbersome.![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/javaandpython.png?raw=true)
 
 
 
@@ -2747,7 +2747,7 @@ Package names give a canonical name for everything. (Perhaps this is very simila
 
 #### A. Autoboxing and Unboxing
 
-We have defined a number of generic classes that can use the `<>` syntax to implment different types of `Array`, `IntList`, `ArrayDeque` and so on. Something looks ambiguous, however. Inside the `<>` syntax, we cannot use something like `int`, `short`, `long` etc. For example, the `ArrayDeque<int>` will produce a compile-time error. We have to use `Integer`, `Short`, `Long`, respectively. These are called wrapper classes. The following chart shows the primitive type names and its corrresponding wrapper classes names.![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/WrapperClasses.png?raw=true)
+We have defined a number of generic classes that can use the `<>` syntax to implment different types of `Array`, `IntList`, `ArrayDeque` and so on. Something looks ambiguous, however. Inside the `<>` syntax, we cannot use something like `int`, `short`, `long` etc. For example, the `ArrayDeque<int>` will produce a compile-time error. We have to use `Integer`, `Short`, `Long`, respectively. These are called wrapper classes. The following chart shows the primitive type names and its corrresponding wrapper classes names.![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/WrapperClasses.png?raw=true)
 
 So it looks like we have to do the following in order to avoid any syntax error:
 
@@ -2811,7 +2811,7 @@ Java automatically does the conversion. So there is not need to use any `new Int
 >
 > - Arrays are never autoboxes or auto-unboxed, e.g. if you have an array of integers `int[] x`, and try to put its address into a variable of type `Integer[]`, the compiler will not allow your program to compile.
 > - Autoboxing and unboxing also has a measurable performance impact. That is, code that relies on autoboxing and unboxing will be slower than code that eschews such automatic conversions.
-> - Additionally, wrapper types use much more memory than primitive types. On most modern comptuers, not only must your code hold a 64 bit reference to the object, but every object also requires 64 bits of overhead used to store things like the dynamic type of the object (The variables `x` uses 160 bits of memory rather than 32 bits).![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/MemoryUsageInt.png?raw=true)
+> - Additionally, wrapper types use much more memory than primitive types. On most modern comptuers, not only must your code hold a 64 bit reference to the object, but every object also requires 64 bits of overhead used to store things like the dynamic type of the object (The variables `x` uses 160 bits of memory rather than 32 bits).![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/MemoryUsageInt.png?raw=true)
 
 
 
@@ -3447,7 +3447,7 @@ Thereafter, we can get an error message `Exception in thread "main" java.lang.Il
 
 * More useful Exception type and helpful error message for those using our code
 
-There are other ways to avoid the `NullPointerException` error. **Approach 1**: Don't add `null` to the array if it is passed into `add` **Approach 2**: Change the `contains` method to account for the case if `items[i] == null`. The implementation of these method can be found in the author's Github repository, [CS61B_reading](https://github.com/XChen1998/CS61B_Readings). Of the most important, this program should be user friendly, that is to let them know that adding a `null` value is not reasonable and can casue severe run-time error.
+There are other ways to avoid the `NullPointerException` error. **Approach 1**: Don't add `null` to the array if it is passed into `add` **Approach 2**: Change the `contains` method to account for the case if `items[i] == null`. The implementation of these method can be found in the author's Github repository, [CS61B_reading](https://github.com/XChen1998/Work/tree/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings). Of the most important, this program should be user friendly, that is to let them know that adding a `null` value is not reasonable and can casue severe run-time error.
 
 
 
@@ -3671,7 +3671,7 @@ public class Doge {
 - `False`
 - `True`
 
-The only tricky thing is that `fido` and `fidoTwin` has different addresss, though they have the same contents. Thus, there are different for `==` operator.  The details can be found in the following figure:![image](https://github.com/XChen1998/CS61B_Notes/blob/main/Figures/Doge.png?raw=true)
+The only tricky thing is that `fido` and `fidoTwin` has different addresss, though they have the same contents. Thus, there are different for `==` operator.  The details can be found in the following figure:![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Doge.png?raw=true)
 
 
 
@@ -3877,7 +3877,7 @@ There are **four** accesss modifiers in the Java language, including `private`, 
 
 #### B. Access Control Subtleties
 
-Assume we have the [following code](https://github.com/XChen1998/CS61B_Readings/tree/master/7.%20Packages%20and%20Access%20Control/Access%20Control%20Subtleties). What will the compiler do with the `Clinet` class?
+Assume we have the [following code](https://github.com/XChen1998/Work/tree/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/7.%20Packages%20and%20Access%20Control/Access%20Control%20Subtleties). What will the compiler do with the `Clinet` class?
 
 ```java
 package universe;
@@ -4008,7 +4008,7 @@ public class SubBlackHole implements BlackHole {
 
 #### C. ADT's
 
-> ADT's (Abstract Data Structures) are high-level types that are defined by their **behaviors**, not their implementations.
+> ADT's (Abstract Data Structures) are high-level types that are defined by their **behaviours**, not their implementations.
 >
 > i.e.) Deque in [Proj1a](1. DLList & Array (Project 1a)) was an ADT that had certain behaviors (addFirst, addLast, etc.). But, the data structures we actually used to implement it was ArrayDeque and LinkedListDeque
 >
@@ -4491,7 +4491,7 @@ which is dominated by the $N^3$ term when $N\to\infin$ .
 >
 >- Choose a representative operation
 >- Let C(N) = count of how many times that operation occurs, as a function of N.
->- Determine order of growth *f*(*N*) for *C*(*N*), i.e. C*(*N*)∈Θ(*f*(*N*))
+>- Determine order of growth *f*(*N*) for *C*(*N*), i.e. C*(*N*)∈Θ(*f*(*N))
 >- Often (but not always) we consider the worst case count.
 >- If operation takes constant time, then *R*(*N*)∈Θ(*f*(*N*))
 
