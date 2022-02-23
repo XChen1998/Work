@@ -5203,11 +5203,17 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 
 
 
+The two figures below demonstrate two typical insertation examples, if you can fully understand the processes, you understand how a RBBST works.
+
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Typical%20Insertion%20Operations%20of%20RBBST.png?raw=true)
+
+
+
 ### 4. A Complete Implementation of A RBBST 
 
-### A. A Typical RBBST Class
+#### A. A Typical RBBST Class
 
-The following codes demonstrate a typical implementation fo a RBBST. It is modified from the [*Algs Website*](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/RedBlackBST.java.html). It includes many features like `delete`, `deleteMin`, `deleteMax`, etc. To better understand the philosophy behind these method, please consult `Algs`Xi
+The following codes demonstrate a typical implementation fo a RBBST. It is modified from the [*Algs Website*](https://algs4.cs.princeton.edu/code/edu/princeton/cs/algs4/RedBlackBST.java.html). It includes many features like `delete`, `deleteMin`, `deleteMax`, etc. To better understand the philosophy behind these method, please consult [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 441-443. 
 
 ```Java
 import java.util.NoSuchElementException;
@@ -5890,6 +5896,20 @@ public class RedBlackBST<Key extends Comparable<Key>, Value> {
 ```
 
 
+
+#### B. *Summary* 
+
+The performance of RBBSTs are as follows, please consult [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 444-447  for detailed discussions. 
+
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/RBBST%20Performance.png?raw=true)
+
+We can see that the RBBST implementation of *2-3 tree search* provides all logarithm runtime complexity in both search and insertion operations. It also efficiently support ordered operations.
+
+
+
+The following figure shows a typicalRBBSt built from random insertion:
+
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Random%20RBBST.png?raw=true)
 
 
 
