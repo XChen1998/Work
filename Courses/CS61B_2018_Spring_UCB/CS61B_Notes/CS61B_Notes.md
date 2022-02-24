@@ -6738,6 +6738,12 @@ public class PercolationFactory {
 
 
 
+### 3. Tree Maps vs. Hash Maps
+
+This lab is quite straightfowared. Please consult my repository for solutions. 
+
+
+
 ## *Extra*: Discussions
 
 *This section includes most of the discussion questions. Discussion 1 is skipped.*
