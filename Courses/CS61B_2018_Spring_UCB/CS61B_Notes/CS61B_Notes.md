@@ -6267,7 +6267,70 @@ Please note that the behaviour of `SequentialSearchST` data type is very much li
 
 
 
+#### B. Linear Probing (Optional)
 
+For details about linear probing, please consult [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 469-475. It is also efficient but less popular, so we will not discuss this approach in details. The following figure shows the data structure of linear probing:
+
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Linear%20Probing%20Data%20Structure.png?raw=true)
+
+
+
+An implementation is also shown as follows:
+
+```Java
+public class LinearProbingHashST<Key, Value> {
+    private int N; // number of key-value pairs in the table
+    private int M = 16; // size of linear-probing table
+    private Key[] keys; // the keys
+    private Value[] vals; // the values
+
+    public LinearProbingHashST(int M) {
+        keys = (Key[]) new Object[M];
+        vals = (Value[]) new Object[M];
+    }
+
+    private int hash(Key key) {
+        return (key.hashCode() & 0x7fffffff) % M;
+    }
+
+    private void resize(int cap) {
+        LinearProbingHashST<Key, Value> t;
+        t = new LinearProbingHashST<Key, Value>(cap);
+        for (int i = 0; i < M; i++)
+            if (keys[i] != null)
+                t.put(keys[i], vals[i]);
+        keys = t.keys;
+        vals = t.vals;
+        M = t.M;
+    }
+
+    public void put(Key key, Value val) {
+        if (N >= M / 2) resize(2 * M); // double M (see text)
+        int i;
+        for (i = hash(key); keys[i] != null; i = (i + 1) % M)
+            if (keys[i].equals(key)) {
+                vals[i] = val;
+                return;
+            }
+        keys[i] = key;
+        vals[i] = val;
+        N++;
+    }
+
+    public Value get(Key key) {
+        for (int i = hash(key); keys[i] != null; i = (i + 1) % M)
+            if (keys[i].equals(key))
+                return vals[i];
+        return null;
+    }
+}
+```
+
+
+
+### 3. *Summary*
+
+**For summative information about hashing, please consult  [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 478-479.**
 
 
 
