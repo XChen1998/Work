@@ -6035,6 +6035,28 @@ public class DataIndexedEnglishWordSet {
 
 
 
+#### C. Inserting Strings beyond the Scope of English Words
+
+Using a character format called **ASCII**, we can represent $126$ unique characters. The base therefore becomes $126$. This sounds still reasonable, however, if we are intersted in Chinese representation, there can be as many as $40959$ Chinese characters, which means we need an array of szie larger than **39 trillion** to store a single 3 character Chinese word, this is terrible for memory usage. Even in the case where memory usage is out of interest, the Java language has its largest integers, $4,294,967,296$, which means the `String` *omens* in a $126$-based system will beyond this limitation. So we have to find an alternative way to deal with these problems.
+
+
+
+The truth is, we **must** handle with collisions. The *omens* returns $-1,867,853,901$ in the Java language system. Moreover,  `melt banana` and `subterresetrial anticosmetic` have to same integer representation according to our **ASCII** based system.
+
+
+
+Please note that overflow is general very **bad**, as it can avoid the program from doing the correct things. But here, we somehow can find an approach to deal with the collison problem, which makes overflow not that bad.
+
+
+
+So what is the way out? The answer is **hash codes**. For example, the hash code of `melt banana` is $839,099,497$. The fact is, in Java language
+
+
+
+
+
+
+
 ## *Extra*: Homeworks
 
 *This section includes most of the homework questions. Homework 0 is skipped.*
