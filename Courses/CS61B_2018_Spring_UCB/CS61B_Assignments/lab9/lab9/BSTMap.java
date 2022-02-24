@@ -50,13 +50,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
         }
         int cmp = key.compareTo(p.key);
         if (cmp < 0) {
-            getHelper(key, p.left);
+            return getHelper(key, p.left);
         } else if (cmp > 0) {
-            getHelper(key, p.right);
+            return getHelper(key, p.right);
         } else {
             return p.value;
         }
-        return null;
     }
 
     /**
@@ -80,13 +79,19 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             root = new Node(key, value);
             return root;
         }
-        int cmp = key.compareTo(p.key);
-        if (cmp < 0) {
-            p.left = putHelper(key, value, p.left);
-        } else if (cmp > 0) {
-            p.right = putHelper(key, value, p.right);
-        } else {
-            p.value = value;
+        if (p == null){
+            p = new Node(key, value);
+        }
+        else {
+            int cmp = key.compareTo(p.key);
+            if (cmp < 0) {
+                p.left = putHelper(key, value, p.left);
+            } else if (cmp > 0) {
+                p.right = putHelper(key, value, p.right);
+            } else {
+                size--;
+                p.value = value;
+            }
         }
         return p;
 
@@ -106,12 +111,13 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             return;
         }
         putHelper(key, value, root);
+        size++;
     }
 
     /* Returns the number of key-value mappings in this map. */
     @Override
     public int size() {
-        throw new UnsupportedOperationException();
+        return size;
     }
 
     //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
@@ -145,5 +151,13 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
     @Override
     public Iterator<K> iterator() {
         throw new UnsupportedOperationException();
+    }
+
+    public static void main(String[] args) {
+        BSTMap<String, Integer> bstmap = new BSTMap<>();
+        bstmap.put("hello", 5);
+        bstmap.put("cat", 10);
+        bstmap.put("fish", 22);
+        bstmap.put("zebra", 90);
     }
 }
