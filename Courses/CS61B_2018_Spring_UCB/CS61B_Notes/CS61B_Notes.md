@@ -4478,7 +4478,7 @@ which is dominated by the $N^3$ term when $N\to\infin$ .
 
 
 
-#### *<font color = red size = 5>H. Summary</font>*
+#### H. *Summary*
 
 >Given a piece of code, we can express its runtime as a function R(N)
 >
@@ -4613,7 +4613,7 @@ The author's implementation of merge sort can be found in his [CS61B_Readings re
 
 
 
-#### *<font color = red size = 5>F. Summary</font>*
+#### F. *Summary*
 
 > - There are no magic shortcuts for analyzing code runtime.
 > - In our course, it’s OK to do exact counting or intuitive analysis.
@@ -5910,6 +5910,54 @@ We can see that the RBBST implementation of *2-3 tree search* provides all logar
 The following figure shows a typicalRBBSt built from random insertion:
 
 ![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/Random%20RBBST.png?raw=true)
+
+## XII. Hashing
+
+### 1. Why We Want Hashing
+
+The RBBST implementation of *2-3 B Trees* has provided us with a very efficient data structure of logarithm runtime complexity, however, there are still there drawbacks:
+
+> 1. They require that items be comparable. How do you decide where a new item goes in a BST? You have to answer the question "are you smaller than or bigger than the root"? For some objects, this question may make no sense. 
+>
+> 2. hey give a complexity of $\Theta(\log N)$. Is this good? Absolutely. But maybe we can do better.
+
+
+
+Now we only foucus on the second issue, which means we want to improve our runtime complexity to $\Theta(1)$. So we want a data structure called hashing.
+
+
+
+### 2. A Naive Attempt
+
+Since we want $\Theta (1)$ runtime complexity, we can create the following class that may stores intergers in a quick way:
+
+```java
+public class DataIndexedIntegerSet {
+    private boolean[] present;
+
+    public DataIndexedIntegerSet() {
+        present = new boolean[2000000000];
+    }
+
+    public void add(int x) {
+        present[i] = true;
+    }
+
+    public boolean contains(int x) {
+        return present[i];
+    }
+}
+```
+
+Here we create a `boolean` array of size 2,000,000,000, and represent the existence of an interger as `true` or `false` in the corresponding place. The `add` and `contains` method is all in constant runtime complexity, look like a sound approch! However, the initialisation of a `boolean` array of size two billion may use a huge amount of memory, whereas it can only handle integers that are small than two billion. Moreover, what if the user want to insert `String` instead of simple integers. We will move forward to solve these issues.
+
+
+
+
+
+
+
+
 
 
 
