@@ -5929,6 +5929,8 @@ Now we only foucus on the second issue, which means we want to improve our runti
 
 ### 2. A Naive Attempt
 
+#### A. Integers
+
 Since we want $\Theta (1)$ runtime complexity, we can create the following class that may stores intergers in a quick way:
 
 ```java
@@ -5953,11 +5955,83 @@ Here we create a `boolean` array of size 2,000,000,000, and represent the existe
 
 
 
+#### B. Strings
+
+How about stirngs? The previous class can do nothing if we want to insert an element called *dog* or *cat*. It is true that we can use the first letter to distingush some of them, however, the limitation is obvious--How do we represent *dog* and *drum* in a different way? Here we encounter a concept of **collision**, which we do not have any knowledge about it. 
 
 
 
+Therefore, we now introduce the a system just like decimal or binary two represent strings as follows:
+$$
+cat = 3\times 26^2+ 1\times 26^1 + 20\times26^0 = 2074,
+$$
+where we represent the alpabet with $1-26$. This repsentation gives a unique integer corresponding to a specific string. If we want to add more characters in differenet language or even some emoji, etc., we can change the base $26$ to the total number of different characters. 
 
 
+
+The base $N$, where $N$ is the total number of unique characters, provides a rigorous mathematical system to convert system to integers.
+
+
+
+The implmentaion and its test (`ab ` can be represented as 28) is shown as follows:
+
+```Java
+public class DataIndexedEnglishWordSet {
+    private boolean[] present;
+
+    public DataIndexedEnglishWordSet() {
+        present = new boolean[2000000000];
+    }
+
+    public void add(String s) {
+        present[englishToInt(s)] = true;
+    }
+
+    public boolean contains(String s) {
+        return present[englishToInt(s)];
+    }
+
+    public static int letterNum(String s, int i) {
+        /** Converts ith character of String to a letter number.
+         * e.g. 'a' -> 1, 'b' -> 2, 'z' -> 26 */
+        int ithChar = s.charAt(i);
+        if ((ithChar < 'a') || (ithChar > 'z')) {
+            throw new IllegalArgumentException();
+        }
+        return ithChar - 'a' + 1;
+    }
+
+    public static int englishToInt(String s) {
+        int intRep = 0;
+        for (int i = 0; i < s.length(); i += 1) {
+            intRep = intRep * 26;
+            intRep += letterNum(s, i);
+        }
+
+        return intRep;
+    }
+
+    public static void main(String[] args) {
+        DataIndexedEnglishWordSet test = new DataIndexedEnglishWordSet();
+        test.add("ab");
+        System.out.println(DataIndexedEnglishWordSet.englishToInt("ab"));
+    }
+}
+```
+
+
+
+**Where are we?**
+
+> Recall, we started with wanting to
+>
+> (a) Be better than $\Theta(\log N)$ We've now done this for integers and for single english words.
+>
+> (b) Allow for non-comparable items. We haven't touched this yet, although we are getting there. So far, we've only learnt how to add integers and English words, both of which *are* comparable, **but**, have we ever **used** the fact that they are comparable? I.e., have we ever tried to compare them (like we did in BSTs)? No. So we're getting there, but we haven't actually inserted anything non-comparable yet.
+>
+> (c) We have data structures that insert integers and English words. Let's make a quick visit to inserting arbitrary `String` objects, with spaces and all that. And maybe even insert other languages and emojis!
+>
+> (d) Further recall that our approach is still very wasteful of memory. We haven't solved that issue yet!
 
 
 
