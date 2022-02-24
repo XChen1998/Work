@@ -6049,7 +6049,26 @@ Please note that overflow is general very **bad**, as it can avoid the program f
 
 
 
-So what is the way out? The answer is **hash codes**. For example, the hash code of `melt banana` is $839,099,497$. The fact is, in Java language
+So what is the way out? The answer is **hash codes**. For example, the hash code of `melt banana` is $839,099,497$. The fact is, in Java language:
+
+> - Every Object in Java has a default `.hashcode()` method, which we can use. Java computes this by figuring out where the `Object` sits in memory (every section of the memory in your computer has an address!), and uses that memory's address to do something similar to what we did with `String`s. This methods gives a *unique* hashcode for every single Java object.
+> - Sometimes, we write our own `hashcode` method. For example, given a `Dog`, we may use a combination of its `name`, `age` and `breed` to generate a `hashcode`.
+
+
+
+Its properties include the following:
+
+> 1. It must be an Integer
+> 2. If we run `.hashCode()` on an object twice, it should return the **same** number
+> 3. Two objects that are considered `.equal()` must have the same hash code.
+>
+> Not all hash codes are created equal, however. If you want your hash code to be considered a **good** hash code, it should:
+>
+> 1. Distribute items evenly
+
+Now, we have begun to include arbitary objects into consideration. The issues remain unsolved are that we still have not considered how to use less space and handle collisions.
+
+
 
 
 
