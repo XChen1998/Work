@@ -9237,7 +9237,7 @@ The answer for the two questions are the same, $\Theta (N^2)$. To create a worst
 
 ### 14. Asymptotic Analysis II
 
-Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2014/Discussion%2014.pdf) for author's solutions of discussion 14. The Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/disc08sol.pdf).
+Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2014/Discussion%2014.pdf) for author's solutions of discussion 14. Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/disc08sol.pdf).
 
 
 
@@ -9373,11 +9373,17 @@ public class BSTTree {
 }
 ```
 
-This method use the parents value as a bound to recursively search for any invalid leaves. The original one fail to find out invalid leaves as shown in the example in the corresponding PDF.
+This method use the parents value as a bound to recursively search for any invalid leaves. The original one fail to find out invalid leaves as shown in the example in the corresponding [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2016/Discussion%2016.pdf).
 
 
 
-The rest solution of discussion 16 can be found in this PDF
+The rest solution of discussion 16 can be found in this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2016/Discussion%2016.pdf). Hug's soluton can be found [here](https://sp18.datastructur.es/materials/discussion/disc09sol.pdf).
+
+
+
+### 17. Hashing (Exam Preparation)
+
+Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2017/Discussion%2017.pdf) for author's solutions of discussion 17. Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/examprep09sol.pdf).
 
 
 
