@@ -125,7 +125,9 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
 
     @Override
     public Iterator<K> iterator() {
-        return new MyHashMapIterator();
+        Set<K> set = keySet();
+        return set.iterator();
+      /*  return new MyHashMapIterator();*/
 
     }
 
@@ -153,4 +155,13 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
         }
     }
 
+    public static void main(String[] args) {
+        MyHashMap<Integer, Double> test = new MyHashMap<>();
+        for (int i = 0; i < 10; i++){
+            test.put(i, i*2.0);
+        }
+        for (int i : test){
+            System.out.println(i);
+        }
+     }
 }
