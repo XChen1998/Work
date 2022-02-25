@@ -1,5 +1,6 @@
 package lab9;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -79,10 +80,9 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             root = new Node(key, value);
             return root;
         }
-        if (p == null){
+        if (p == null) {
             p = new Node(key, value);
-        }
-        else {
+        } else {
             int cmp = key.compareTo(p.key);
             if (cmp < 0) {
                 p.left = putHelper(key, value, p.left);
@@ -125,7 +125,18 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
     /* Returns a Set view of the keys contained in this map. */
     @Override
     public Set<K> keySet() {
-        throw new UnsupportedOperationException();
+        Set<K> set = new HashSet<>();
+        traverse(set, root);
+        return set;
+    }
+
+    private void traverse(Set<K> set, Node n) {
+        if (n == null) {
+            return;
+        }
+        traverse(set, n.left);
+        set.add(n.key);
+        traverse(set, n.right);
     }
 
     /**
@@ -135,7 +146,55 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      */
     @Override
     public V remove(K key) {
-        throw new UnsupportedOperationException();
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        V value = get(key);
+        if (get(key) != null) {
+            root = remove(key, root);
+        }
+        size--;
+        return value;
+    }
+
+    private Node remove(K key, Node n) {
+        if (n == null) {
+            return null;
+        }
+        int cmp = key.compareTo(n.key);
+        if (cmp < 0) {
+            n.left = remove(key, n.left);
+        } else if (cmp > 0) {
+            n.right = remove(key, n.right);
+        } else {
+            Node t = n;
+            n = min(t.right);
+            if (n != null) {
+                n.right = deleteMin(t.right);
+                n.left = t.left;
+            }
+            if(n == null){
+                return t.left;
+            }
+        }
+        return n;
+    }
+
+    private Node min(Node n) {
+        if (n == null) {
+            return null;
+        }
+        if (n.left != null) {
+            return min(n.left);
+        } else {
+            return n;
+        }
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        return x;
     }
 
     /**
@@ -145,19 +204,27 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
      **/
     @Override
     public V remove(K key, V value) {
-        throw new UnsupportedOperationException();
+        if (get(key) == value){
+            return remove(key);
+        }
+        return null;
     }
 
     @Override
     public Iterator<K> iterator() {
-        throw new UnsupportedOperationException();
+        Set<K> set = keySet();
+        return set.iterator();
     }
 
     public static void main(String[] args) {
         BSTMap<String, Integer> bstmap = new BSTMap<>();
-        bstmap.put("hello", 5);
-        bstmap.put("cat", 10);
-        bstmap.put("fish", 22);
-        bstmap.put("zebra", 90);
+        bstmap.put("S", 5);
+        bstmap.put("E", 10);
+        bstmap.put("A", 22);
+        bstmap.put("R", 90);
+        bstmap.put("C", 91);
+        bstmap.put("H", 92);
+        bstmap.put("M", 93);
+        bstmap.remove("R");
     }
 }
