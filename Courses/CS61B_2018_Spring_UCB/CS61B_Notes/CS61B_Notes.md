@@ -9344,6 +9344,43 @@ public class NumListQuestion {
 
 
 
+### 16. Disjoint Sets, Trees, Hashing
+
+#### A. `isBSTGood`
+
+```java
+public class BSTTree {
+    class TreeNode {
+        int val;
+        private TreeNode left;
+        private TreeNode right;
+    }
+
+    private TreeNode root;
+
+    public static boolean isBSTGood(TreeNode T) {
+        return isBSTGood(T, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
+    private static boolean isBSTGood(TreeNode T, int min, int max) {
+        if (T == null) {
+            return true;
+        } else if (T.val > max || T.val < min) {
+            return false;
+        }
+        return isBSTGood(T.left, min, T.val) && isBSTGood(T.right, T.val, max);
+    }
+}
+```
+
+This method use the parents value as a bound to recursively search for any invalid leaves. The original one fail to find out invalid leaves as shown in the example in the corresponding PDF.
+
+
+
+The rest solution of discussion 16 can be found in this PDF
+
+
+
 ## *Extra*: Labs
 
 This section includes some key philosophy of the labs. Some environment-setting-based labs are skipped.
