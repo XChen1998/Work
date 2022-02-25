@@ -6738,7 +6738,7 @@ public class PercolationFactory {
 
 
 
-### 3. Tree Maps vs. Hash Maps
+### 9. Tree Maps vs. Hash Maps
 
 #### A. BSTMap
 
