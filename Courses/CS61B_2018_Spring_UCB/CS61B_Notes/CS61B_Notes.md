@@ -6738,429 +6738,15 @@ public class PercolationFactory {
 
 
 
-### 9. Tree Maps vs. Hash Maps
+### 3. Hashing
 
-#### A. BSTMap
-
-```Java
-package lab9;
-
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-
-/**
- * Implementation of interface Map61B with BST as core data structure.
- *
- * @author Your name here
- */
-public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
-
-    private class Node {
-        /* (K, V) pair stored in this Node. */
-        private K key;
-        private V value;
-
-        /* Children of this Node. */
-        private Node left;
-        private Node right;
-
-        private Node(K k, V v) {
-            key = k;
-            value = v;
-        }
-    }
-
-    private Node root;  /* Root node of the tree. */
-    private int size; /* The number of key-value pairs in the tree */
-
-    /* Creates an empty BSTMap. */
-    public BSTMap() {
-        this.clear();
-    }
-
-    /* Removes all of the mappings from this map. */
-    @Override
-    public void clear() {
-        root = null;
-        size = 0;
-    }
-
-    /**
-     * Returns the value mapped to by KEY in the subtree rooted in P.
-     * or null if this map contains no mapping for the key.
-     */
-    private V getHelper(K key, Node p) {
-        if (p == null) {
-            return null;
-        }
-        int cmp = key.compareTo(p.key);
-        if (cmp < 0) {
-            return getHelper(key, p.left);
-        } else if (cmp > 0) {
-            return getHelper(key, p.right);
-        } else {
-            return p.value;
-        }
-    }
-
-    /**
-     * Returns the value to which the specified key is mapped, or null if this
-     * map contains no mapping for the key.
-     */
-    @Override
-    public V get(K key) {
-        if (key == null) {
-            throw new IllegalArgumentException();
-        }
-        return getHelper(key, root);
-    }
-
-    /**
-     * Returns a BSTMap rooted in p with (KEY, VALUE) added as a key-value mapping.
-     * Or if p is null, it returns a one node BSTMap containing (KEY, VALUE).
-     */
-    private Node putHelper(K key, V value, Node p) {
-        if (root == null) {
-            root = new Node(key, value);
-            return root;
-        }
-        if (p == null) {
-            p = new Node(key, value);
-        } else {
-            int cmp = key.compareTo(p.key);
-            if (cmp < 0) {
-                p.left = putHelper(key, value, p.left);
-            } else if (cmp > 0) {
-                p.right = putHelper(key, value, p.right);
-            } else {
-                size--;
-                p.value = value;
-            }
-        }
-        return p;
-
-
-    }
-
-    /**
-     * Inserts the key KEY
-     * If it is already present, updates value to be VALUE.
-     */
-    @Override
-    public void put(K key, V value) {
-        if (key == null) {
-            throw new IllegalArgumentException();
-        }
-        if (value == null) {
-            return;
-        }
-        putHelper(key, value, root);
-        size++;
-    }
-
-    /* Returns the number of key-value mappings in this map. */
-    @Override
-    public int size() {
-        return size;
-    }
-
-    //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
-
-    /* Returns a Set view of the keys contained in this map. */
-    @Override
-    public Set<K> keySet() {
-        Set<K> set = new HashSet<>();
-        traverse(set, root);
-        return set;
-    }
-
-    private void traverse(Set<K> set, Node n) {
-        if (n == null) {
-            return;
-        }
-        traverse(set, n.left);
-        set.add(n.key);
-        traverse(set, n.right);
-    }
-
-    /**
-     * Removes KEY from the tree if present
-     * returns VALUE removed,
-     * null on failed removal.
-     */
-    @Override
-    public V remove(K key) {
-        if (key == null) {
-            throw new IllegalArgumentException();
-        }
-        V value = get(key);
-        if (get(key) != null) {
-            root = remove(key, root);
-        }
-        size--;
-        return value;
-    }
-
-    private Node remove(K key, Node n) {
-        if (n == null) {
-            return null;
-        }
-        int cmp = key.compareTo(n.key);
-        if (cmp < 0) {
-            n.left = remove(key, n.left);
-        } else if (cmp > 0) {
-            n.right = remove(key, n.right);
-        } else {
-            Node t = n;
-            n = min(t.right);
-            if (n != null) {
-                n.right = deleteMin(t.right);
-                n.left = t.left;
-            }
-            if(n == null){
-                return t.left;
-            }
-        }
-        return n;
-    }
-
-    private Node min(Node n) {
-        if (n == null) {
-            return null;
-        }
-        if (n.left != null) {
-            return min(n.left);
-        } else {
-            return n;
-        }
-    }
-
-    private Node deleteMin(Node x) {
-        if (x.left == null) return x.right;
-        x.left = deleteMin(x.left);
-        return x;
-    }
-
-    /**
-     * Removes the key-value entry for the specified key only if it is
-     * currently mapped to the specified value.  Returns the VALUE removed,
-     * null on failed removal.
-     **/
-    @Override
-    public V remove(K key, V value) {
-        if (get(key) == value){
-            return remove(key);
-        }
-        return null;
-    }
-
-    @Override
-    public Iterator<K> iterator() {
-        Set<K> set = keySet();
-        return set.iterator();
-    }
-
-    public static void main(String[] args) {
-        BSTMap<String, Integer> bstmap = new BSTMap<>();
-        bstmap.put("S", 5);
-        bstmap.put("E", 10);
-        bstmap.put("A", 22);
-        bstmap.put("R", 90);
-        bstmap.put("C", 91);
-        bstmap.put("H", 92);
-        bstmap.put("M", 93);
-        bstmap.remove("R");
-    }
-}
-
-```
-
-The `get`, `put`, `size` functions are straightforward. The `keySet` function, however, requires a bit more efforts to create a helper method called traverse, i.e. traverse all elements in the `BSTMap`.
+This is a light-weighted homework, just follow the guidance in the website will be fine. Please consult my [reporsitory](https://github.com/XChen1998/Work/tree/main/Courses/CS61B_2018_Spring_UCB/CS61B_Assignments/hw3) for complete implementation. There is only one thing need to be mentioned--to break the `hash` method in `ComplexOomage`, just find a way to let the `total` variable be powers of $256$. One possible solution to improve the `hash` method is to add a random number each time the `total` is multipled by $256$. 
 
 
 
-The most tricky part is the `remove` method. We can somehow consult this figure as reference:
-
-![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/BST%20Delete.png?raw=true)
-
-For details, please consult [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 410.
+This homework provides a good example of the performance and behaviours of `hash` method. It would be a very good resource to deepen your understanding in hashing.
 
 
-
-#### B. MyHashMap
-
-```Java
-package lab9;
-
-import java.util.*;
-
-import edu.princeton.cs.algs4.*;
-/**
- * A hash table-backed Map implementation. Provides amortized constant time
- * access to elements via get(), remove(), and put() in the best case.
- *
- * @author Your name here
- */
-public class MyHashMap<K, V> implements Map61B<K, V> {
-
-    private static final int DEFAULT_SIZE = 16;
-    private static final double MAX_LF = 0.75;
-
-    private ArrayMap<K, V>[] buckets;
-    private int size;
-
-    private int loadFactor() {
-        return size / buckets.length;
-    }
-
-    public MyHashMap() {
-        buckets = new ArrayMap[DEFAULT_SIZE];
-        this.clear();
-    }
-
-    /* Removes all of the mappings from this map. */
-    @Override
-    public void clear() {
-        this.size = 0;
-        for (int i = 0; i < this.buckets.length; i += 1) {
-            this.buckets[i] = new ArrayMap<>();
-        }
-    }
-
-    /**
-     * Computes the hash function of the given key. Consists of
-     * computing the hashcode, followed by modding by the number of buckets.
-     * To handle negative numbers properly, uses floorMod instead of %.
-     */
-    private int hash(K key) {
-        if (key == null) {
-            return 0;
-        }
-        int numBuckets = buckets.length;
-        return Math.floorMod(key.hashCode(), numBuckets);
-    }
-
-    /* Returns the value to which the specified key is mapped, or null if this
-     * map contains no mapping for the key.
-     */
-    @Override
-    public V get(K key) {
-        if (key == null) {
-            throw new IllegalArgumentException();
-        }
-        return buckets[hash(key)].get(key);
-    }
-
-    /* Associates the specified value with the specified key in this map. */
-    @Override
-    public void put(K key, V value) {
-        if (key == null) {
-            throw new IllegalArgumentException();
-        }
-        if (!buckets[hash(key)].containsKey(key)) {
-            size++;
-        }
-        buckets[hash(key)].put(key, value);
-    }
-
-    /* Returns the number of key-value mappings in this map. */
-    @Override
-    public int size() {
-        return size;
-    }
-
-    //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
-
-    /* Returns a Set view of the keys contained in this map. */
-    @Override
-    public Set<K> keySet() {
-        Set returned = new HashSet();
-        for (int i = 0; i < buckets.length; i++) {
-            for (K key : buckets[i]) {
-                returned.add(key);
-            }
-        }
-        return returned;
-    }
-
-    /* Removes the mapping for the specified key from this map if exists.
-     * Not required for this lab. If you don't implement this, throw an
-     * UnsupportedOperationException. */
-    @Override
-    public V remove(K key) {
-        if (key == null){
-            throw new IllegalArgumentException();
-        }
-        if (get(key) == null) {
-            return null;
-        } else {
-            size--;
-            return buckets[hash(key)].remove(key);
-        }
-    }
-
-    /* Removes the entry for the specified key only if it is currently mapped to
-     * the specified value. Not required for this lab. If you don't implement this,
-     * throw an UnsupportedOperationException.*/
-    @Override
-    public V remove(K key, V value) {
-        if (get(key) == null){
-            throw new IllegalArgumentException();
-        }
-        if (get(key)!= value){
-            return null;
-        } else{
-            size--;
-            return buckets[hash(key)].remove(key);
-        }
-    }
-
-    @Override
-    public Iterator<K> iterator() {
-        Set<K> set = keySet();
-        return set.iterator();
-      /*  return new MyHashMapIterator();*/
-
-    }
-
-    private class MyHashMapIterator implements Iterator<K> {
-        private int pos;
-        private K[] keys = (K[]) new Objects[size];
-        private Set<K> set;
-
-        public MyHashMapIterator(){
-            pos = 0;
-            set = keySet();
-            keys = (K[]) set.toArray();
-        }
-
-        @Override
-        public boolean hasNext() {
-            return pos < size;
-        }
-
-        @Override
-        public K next() {
-            K returned = keys[pos];
-            pos++;
-            return returned;
-        }
-    }
-
-    public static void main(String[] args) {
-        MyHashMap<Integer, Double> test = new MyHashMap<>();
-        for (int i = 0; i < 10; i++){
-            test.put(i, i*2.0);
-        }
-        for (int i : test){
-            System.out.println(i);
-        }
-     }
-}
-```
-
-The `MyHashMap` is rather straightforward to implement as the `ArrayMap` has solved most of the issuse with respect to `get` and `put`. Please note that there are two ways to implement the `Iterator` method. The first one is to return an interator of `set`, whereas the second way is to create our own `MyHashMapIterator` method.
 
 
 
@@ -10068,6 +9654,432 @@ This method let the user to enter the length of the hexagon. An example output w
 
 
 **Please note that we should always think about the math behind the program before we actually start to code.** For example, how to calculate the position of the start point? How to draw the bottom half and the top half of the hexagon? Then we just translate our math language into Java language. 
+
+
+
+### 9. Tree Maps vs. Hash Maps
+
+#### A. BSTMap
+
+```Java
+package lab9;
+
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+/**
+ * Implementation of interface Map61B with BST as core data structure.
+ *
+ * @author Your name here
+ */
+public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
+
+    private class Node {
+        /* (K, V) pair stored in this Node. */
+        private K key;
+        private V value;
+
+        /* Children of this Node. */
+        private Node left;
+        private Node right;
+
+        private Node(K k, V v) {
+            key = k;
+            value = v;
+        }
+    }
+
+    private Node root;  /* Root node of the tree. */
+    private int size; /* The number of key-value pairs in the tree */
+
+    /* Creates an empty BSTMap. */
+    public BSTMap() {
+        this.clear();
+    }
+
+    /* Removes all of the mappings from this map. */
+    @Override
+    public void clear() {
+        root = null;
+        size = 0;
+    }
+
+    /**
+     * Returns the value mapped to by KEY in the subtree rooted in P.
+     * or null if this map contains no mapping for the key.
+     */
+    private V getHelper(K key, Node p) {
+        if (p == null) {
+            return null;
+        }
+        int cmp = key.compareTo(p.key);
+        if (cmp < 0) {
+            return getHelper(key, p.left);
+        } else if (cmp > 0) {
+            return getHelper(key, p.right);
+        } else {
+            return p.value;
+        }
+    }
+
+    /**
+     * Returns the value to which the specified key is mapped, or null if this
+     * map contains no mapping for the key.
+     */
+    @Override
+    public V get(K key) {
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        return getHelper(key, root);
+    }
+
+    /**
+     * Returns a BSTMap rooted in p with (KEY, VALUE) added as a key-value mapping.
+     * Or if p is null, it returns a one node BSTMap containing (KEY, VALUE).
+     */
+    private Node putHelper(K key, V value, Node p) {
+        if (root == null) {
+            root = new Node(key, value);
+            return root;
+        }
+        if (p == null) {
+            p = new Node(key, value);
+        } else {
+            int cmp = key.compareTo(p.key);
+            if (cmp < 0) {
+                p.left = putHelper(key, value, p.left);
+            } else if (cmp > 0) {
+                p.right = putHelper(key, value, p.right);
+            } else {
+                size--;
+                p.value = value;
+            }
+        }
+        return p;
+
+
+    }
+
+    /**
+     * Inserts the key KEY
+     * If it is already present, updates value to be VALUE.
+     */
+    @Override
+    public void put(K key, V value) {
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        if (value == null) {
+            return;
+        }
+        putHelper(key, value, root);
+        size++;
+    }
+
+    /* Returns the number of key-value mappings in this map. */
+    @Override
+    public int size() {
+        return size;
+    }
+
+    //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
+
+    /* Returns a Set view of the keys contained in this map. */
+    @Override
+    public Set<K> keySet() {
+        Set<K> set = new HashSet<>();
+        traverse(set, root);
+        return set;
+    }
+
+    private void traverse(Set<K> set, Node n) {
+        if (n == null) {
+            return;
+        }
+        traverse(set, n.left);
+        set.add(n.key);
+        traverse(set, n.right);
+    }
+
+    /**
+     * Removes KEY from the tree if present
+     * returns VALUE removed,
+     * null on failed removal.
+     */
+    @Override
+    public V remove(K key) {
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        V value = get(key);
+        if (get(key) != null) {
+            root = remove(key, root);
+        }
+        size--;
+        return value;
+    }
+
+    private Node remove(K key, Node n) {
+        if (n == null) {
+            return null;
+        }
+        int cmp = key.compareTo(n.key);
+        if (cmp < 0) {
+            n.left = remove(key, n.left);
+        } else if (cmp > 0) {
+            n.right = remove(key, n.right);
+        } else {
+            Node t = n;
+            n = min(t.right);
+            if (n != null) {
+                n.right = deleteMin(t.right);
+                n.left = t.left;
+            }
+            if(n == null){
+                return t.left;
+            }
+        }
+        return n;
+    }
+
+    private Node min(Node n) {
+        if (n == null) {
+            return null;
+        }
+        if (n.left != null) {
+            return min(n.left);
+        } else {
+            return n;
+        }
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        return x;
+    }
+
+    /**
+     * Removes the key-value entry for the specified key only if it is
+     * currently mapped to the specified value.  Returns the VALUE removed,
+     * null on failed removal.
+     **/
+    @Override
+    public V remove(K key, V value) {
+        if (get(key) == value){
+            return remove(key);
+        }
+        return null;
+    }
+
+    @Override
+    public Iterator<K> iterator() {
+        Set<K> set = keySet();
+        return set.iterator();
+    }
+
+    public static void main(String[] args) {
+        BSTMap<String, Integer> bstmap = new BSTMap<>();
+        bstmap.put("S", 5);
+        bstmap.put("E", 10);
+        bstmap.put("A", 22);
+        bstmap.put("R", 90);
+        bstmap.put("C", 91);
+        bstmap.put("H", 92);
+        bstmap.put("M", 93);
+        bstmap.remove("R");
+    }
+}
+
+```
+
+The `get`, `put`, `size` functions are straightforward. The `keySet` function, however, requires a bit more efforts to create a helper method called traverse, i.e. traverse all elements in the `BSTMap`.
+
+
+
+The most tricky part is the `remove` method. We can somehow consult this figure as reference:
+
+![image](https://github.com/XChen1998/Figure_Library/blob/main/Work/Courses/CS61B_2018_Spring_UCB/BST%20Delete.png?raw=true)
+
+For details, please consult [*Algs*](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Algorithms%204th%20Edition.pdf) 410.
+
+
+
+#### B. MyHashMap
+
+```Java
+package lab9;
+
+import java.util.*;
+
+import edu.princeton.cs.algs4.*;
+/**
+ * A hash table-backed Map implementation. Provides amortized constant time
+ * access to elements via get(), remove(), and put() in the best case.
+ *
+ * @author Your name here
+ */
+public class MyHashMap<K, V> implements Map61B<K, V> {
+
+    private static final int DEFAULT_SIZE = 16;
+    private static final double MAX_LF = 0.75;
+
+    private ArrayMap<K, V>[] buckets;
+    private int size;
+
+    private int loadFactor() {
+        return size / buckets.length;
+    }
+
+    public MyHashMap() {
+        buckets = new ArrayMap[DEFAULT_SIZE];
+        this.clear();
+    }
+
+    /* Removes all of the mappings from this map. */
+    @Override
+    public void clear() {
+        this.size = 0;
+        for (int i = 0; i < this.buckets.length; i += 1) {
+            this.buckets[i] = new ArrayMap<>();
+        }
+    }
+
+    /**
+     * Computes the hash function of the given key. Consists of
+     * computing the hashcode, followed by modding by the number of buckets.
+     * To handle negative numbers properly, uses floorMod instead of %.
+     */
+    private int hash(K key) {
+        if (key == null) {
+            return 0;
+        }
+        int numBuckets = buckets.length;
+        return Math.floorMod(key.hashCode(), numBuckets);
+    }
+
+    /* Returns the value to which the specified key is mapped, or null if this
+     * map contains no mapping for the key.
+     */
+    @Override
+    public V get(K key) {
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        return buckets[hash(key)].get(key);
+    }
+
+    /* Associates the specified value with the specified key in this map. */
+    @Override
+    public void put(K key, V value) {
+        if (key == null) {
+            throw new IllegalArgumentException();
+        }
+        if (!buckets[hash(key)].containsKey(key)) {
+            size++;
+        }
+        buckets[hash(key)].put(key, value);
+    }
+
+    /* Returns the number of key-value mappings in this map. */
+    @Override
+    public int size() {
+        return size;
+    }
+
+    //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
+
+    /* Returns a Set view of the keys contained in this map. */
+    @Override
+    public Set<K> keySet() {
+        Set returned = new HashSet();
+        for (int i = 0; i < buckets.length; i++) {
+            for (K key : buckets[i]) {
+                returned.add(key);
+            }
+        }
+        return returned;
+    }
+
+    /* Removes the mapping for the specified key from this map if exists.
+     * Not required for this lab. If you don't implement this, throw an
+     * UnsupportedOperationException. */
+    @Override
+    public V remove(K key) {
+        if (key == null){
+            throw new IllegalArgumentException();
+        }
+        if (get(key) == null) {
+            return null;
+        } else {
+            size--;
+            return buckets[hash(key)].remove(key);
+        }
+    }
+
+    /* Removes the entry for the specified key only if it is currently mapped to
+     * the specified value. Not required for this lab. If you don't implement this,
+     * throw an UnsupportedOperationException.*/
+    @Override
+    public V remove(K key, V value) {
+        if (get(key) == null){
+            throw new IllegalArgumentException();
+        }
+        if (get(key)!= value){
+            return null;
+        } else{
+            size--;
+            return buckets[hash(key)].remove(key);
+        }
+    }
+
+    @Override
+    public Iterator<K> iterator() {
+        Set<K> set = keySet();
+        return set.iterator();
+      /*  return new MyHashMapIterator();*/
+
+    }
+
+    private class MyHashMapIterator implements Iterator<K> {
+        private int pos;
+        private K[] keys = (K[]) new Objects[size];
+        private Set<K> set;
+
+        public MyHashMapIterator(){
+            pos = 0;
+            set = keySet();
+            keys = (K[]) set.toArray();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return pos < size;
+        }
+
+        @Override
+        public K next() {
+            K returned = keys[pos];
+            pos++;
+            return returned;
+        }
+    }
+
+    public static void main(String[] args) {
+        MyHashMap<Integer, Double> test = new MyHashMap<>();
+        for (int i = 0; i < 10; i++){
+            test.put(i, i*2.0);
+        }
+        for (int i : test){
+            System.out.println(i);
+        }
+     }
+}
+```
+
+The `MyHashMap` is rather straightforward to implement as the `ArrayMap` has solved most of the issuse with respect to `get` and `put`. Please note that there are two ways to implement the `Iterator` method. The first one is to return an interator of `set`, whereas the second way is to create our own `MyHashMapIterator` method.
 
 
 
