@@ -1,15 +1,13 @@
 package hw3.hash;
 
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 
-import java.util.Set;
-import java.util.HashSet;
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 
 public class TestSimpleOomage {
@@ -29,6 +27,25 @@ public class TestSimpleOomage {
           meaning no two SimpleOomages should EVER have the same
           hashCode UNLESS they have the same red, blue, and green values!
          */
+        ArrayList<SimpleOomage> test = new ArrayList<>();
+
+        for (int i = 0; i < 15; i += 5) {
+            for (int j = 0; j < 15; j += 5) {
+                for (int k = 0; k < 15; k += 5) {
+                    test.add(new SimpleOomage(i, j, k));
+                }
+            }
+        }
+        for (SimpleOomage so1 : test) {
+            for (SimpleOomage so2 : test) {
+                if (so1.red == so2.red && so1.green == so2.green && so1.blue == so2.blue) {
+                    assertEquals(so1.hashCode(), so2.hashCode());
+                } else{
+                    assertNotEquals(so1.hashCode(), so2.hashCode());
+                }
+
+            }
+        }
     }
 
     @Test
@@ -42,7 +59,6 @@ public class TestSimpleOomage {
         assertNotEquals(ooA, "ketchup");
     }
 
-    /*
     @Test
     public void testHashCodeAndEqualsConsistency() {
         SimpleOomage ooA = new SimpleOomage(5, 10, 20);
@@ -50,7 +66,7 @@ public class TestSimpleOomage {
         HashSet<SimpleOomage> hashSet = new HashSet<>();
         hashSet.add(ooA);
         assertTrue(hashSet.contains(ooA2));
-    }*/
+    }
 
     /* TODO: Uncomment this test after you finish haveNiceHashCode Spread in OomageTestUtility */
     /*@Test
@@ -65,7 +81,9 @@ public class TestSimpleOomage {
         assertTrue(OomageTestUtility.haveNiceHashCodeSpread(oomages, 10));
     }*/
 
-    /** Calls tests for SimpleOomage. */
+    /**
+     * Calls tests for SimpleOomage.
+     */
     public static void main(String[] args) {
         jh61b.junit.textui.runClasses(TestSimpleOomage.class);
     }
