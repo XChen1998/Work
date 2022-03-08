@@ -6361,6 +6361,8 @@ public interface MinPQ<Item> {
 
 
 
+### 2. Why We Want Heaps?
+
 We can, of course, use the following three data structures to implement a priority queue, with time complexity:
 
 **Ordered Array**
@@ -6385,10 +6387,45 @@ We can see that, only the *bushy BST* data structure performs well, however, it 
 
 
 
+### 3. Definition of Heaps and the Implementation
+
 > We will define our binary min-heap as being **complete** and obeying **min-heap** property:
 >
 > - Min-heap: Every node is less than or equal to both of its children
 > - Complete: Missing items only at the bottom level (if any), all nodes are as far left as possible.
+
+
+
+Some eamples are shown as follows:
+
+![image](https://raw.githubusercontent.com/XChen1998/Figure_Library/3b2a6a9874b8f900f1504e9a39f208c57a797ec4/Work/Courses/CS61B_2018_Spring_UCB/Heap%20Examples.png)
+
+
+
+The green trees are complete heaps. There are many possible implementation of heaps in Java, but the most common and easy approach is to use an array of `Key`.
+
+```Java
+public class TreeC<Key> {
+  Key[] keys;
+  ...
+}
+```
+
+By defining the first item to be located in `keys[1]`, we have some invariants of 
+
+* `leftChild(k)` = $k*2$;
+
+* `rightChild(k)` = $k*2+1$;
+
+* `parent(k)` =$k/2$.
+
+The detailed implementation can be found in [lab 10](# 10. Priority Queues). This data structure allows duplicated elements. It also has a sound runtime complexity compared with other data structures.
+
+|     Methods      | Ordered Array |     Bushy BST     |  Hash Table  |       Heap        |
+| :--------------: | :-----------: | :---------------: | :----------: | :---------------: |
+|      `add`       | $\Theta (N)$  | $\Theta (\log N)$ | $\Theta (1)$ | $\Theta (\log N)$ |
+|  `getSmallest`   | $\Theta (1)$  | $\Theta (\log N)$ | $\Theta (N)$ |   $\Theta (1)$    |
+| `removeSmallest` | $\Theta (N)$  | $\Theta (\log N)$ | $\Theta (N)$ | $\Theta (\log N)$ |
 
 
 
