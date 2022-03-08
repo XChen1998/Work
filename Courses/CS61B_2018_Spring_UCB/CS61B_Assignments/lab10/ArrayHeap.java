@@ -483,6 +483,9 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
         System.out.println(pq);
         pq.changePriority("c", 10);
         System.out.println(pq);
+        pq.changePriority("c", 6);
+        System.out.println(pq);
+        pq.changePriority("h", 0);
+        System.out.println(pq);
     }
-
 }
