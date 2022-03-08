@@ -6334,6 +6334,64 @@ public class LinearProbingHashST<Key, Value> {
 
 
 
+## XIII. Heaps and Priority Queues
+
+### 1. Definition of Priority Queues
+
+A priority queue is where you can store elements with possible duplications, but you can only interact with the smallest elements.  What we call interaction here is very much like interactions in the data structure, queues and stacks, but we do not have definition of the terms, *fisrt* or *last*. We only care about the smallest (or sometimes largest) elements.
+
+
+
+A typical interface of a priority queue is like  
+
+```java
+/** (Min) Priority Queue: Allowing tracking and removal of 
+  * the smallest item in a priority queue. */
+public interface MinPQ<Item> {
+    /** Adds the item to the priority queue. */
+    public void add(Item x);
+    /** Returns the smallest item in the priority queue. */
+    public Item getSmallest();
+    /** Removes the smallest item from the priority queue. */
+    public Item removeSmallest();
+    /** Returns the size of the priority queue. */
+    public int size();
+}
+```
+
+
+
+We can, of course, use the following three data structures to implement a priority queue, with time complexity:
+
+**Ordered Array**
+
+- `add`: $\Theta (N)$
+- `getSmallest`: $\Theta (1)$
+- `removeSmallest`: $\Theta (N)$
+
+**Bushy BST**
+
+- `add`: $\Theta (\log N)$
+- `getSmallest`: $\Theta (\log N)$
+- `removeSmallest`: $\Theta (\log N)$
+
+**HashTable**
+
+- `add`: $\Theta (1)$
+- `getSmallest`: $\Theta (N)$
+- `removeSmallest`: $\Theta (N)$
+
+We can see that, only the *bushy BST* data structure performs well, however, it cannot deal with any duplication of elements. Therefore, we introduction the a new data sturcture called *heap*.
+
+
+
+> We will define our binary min-heap as being **complete** and obeying **min-heap** property:
+>
+> - Min-heap: Every node is less than or equal to both of its children
+> - Complete: Missing items only at the bottom level (if any), all nodes are as far left as possible.
+
+
+
 
 
 ## *Extra*: Homeworks
