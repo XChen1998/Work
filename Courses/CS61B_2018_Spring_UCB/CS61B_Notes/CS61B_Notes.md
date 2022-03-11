@@ -9482,6 +9482,18 @@ Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS
 
 
 
+### 18. Heaps, Traversals & Trees
+
+Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2018/Discussion%2018.pdf) for author's solutions of discussion 18. Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/disc10sol.pdf).
+
+
+
+### 19. Heaps and Trees (Exam Preparation)
+
+Please consult this [PDF](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Discussions/Discussion%2019/Discussion%2019.pdf) for author's solutions of discussion 19. Hug's solution can be found [here](https://sp18.datastructur.es/materials/discussion/examprep10sol.pdf).
+
+
+
 ## *Extra*: Labs
 
 This section includes some key philosophy of the labs. Some environment-setting-based labs are skipped.
@@ -11428,3 +11440,11 @@ The answer is:
 2. This method cannot compile, since `result` is a `List ofInts`, which is a father class of `DLListofInts`. So it cannot return an appropriate variable.
 3. This method cannot deal with zero-length input. (zero-length input is not `null`, cunning hug)
 4. This method uses the default `plusEquals` method. Actually, This can be avoid by declare `result` as `DLListofInts`.
+
+
+
+
+
+### II. Midterm II
+
+Please consult this [link](https://github.com/XChen1998/Work/blob/main/Courses/CS61B_2018_Spring_UCB/CS61B_Readings/Exams/Midterm%202/CS61B%20MT2.pdf) for midterm 2 solutions. Please note that the original test paper is missing for some reason in the main [website](https://sp18.datastructur.es) of this course. For detailed solutions, you may find this [YouTube video](https://www.youtube.com/watch?v=nMZn4EV0gGw) very useful.
