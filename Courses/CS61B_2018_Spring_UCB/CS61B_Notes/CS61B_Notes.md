@@ -8038,7 +8038,7 @@ The question one explains a number of ADTs. Please consult this [website](https:
    |      `Map`      | A `Map` is a collection of key-value mappings, like dictionary in Python. Like a set, the keys in a map are unique. |
    |     `Stack`     | A `Stack` is a last-in, first-out (from the end of the `Stack`) ADT: elements are always added or removed from one end of the data structure. A `Stack` is a linear collections. |
    |     `Queue`     | A `Queue` is a first-in, first-out ADT.  A `Queue` is a linear collections. |
-   |     `Deque`     | A 1Deque1 (double ended `Queue`, pronounced “deck”) is a linear collection that supports element insertion and removal at both ends. |
+   |     `Deque`     | A `Deque` (double ended `Queue`, pronounced “deck”) is a linear collection that supports element insertion and removal at both ends. |
    | `PriorityQueue` | A `PriorityQueue` is like a regular `Queue` except each element has a priority associated with it which determines in what order elements are removed from the queue. |
 
 
