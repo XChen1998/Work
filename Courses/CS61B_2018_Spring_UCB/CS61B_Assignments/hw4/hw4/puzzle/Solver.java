@@ -8,9 +8,9 @@ import java.util.Comparator;
 public class Solver {
 
     private MinPQ<SearchNodes> pq;
-    private Stack<SearchNodes> path;
+    private Stack<WorldState> path;
 
-    private class SearchNodes implements Comparator<SearchNodes> {
+    private class SearchNodes implements Comparable<SearchNodes> {
         private int numOfMoves;
         private SearchNodes previous;
         private WorldState ws;
@@ -34,10 +34,10 @@ public class Solver {
         }
 
         @Override
-        public int compare(SearchNodes o1, SearchNodes o2) {
-            int o1Value = o1.moves() + o1.curWorldState().estimatedDistanceToGoal();
-            int o2Value = o2.moves() + o2.curWorldState().estimatedDistanceToGoal();
-            return o1Value - o2Value;
+        public int compareTo(SearchNodes o) {
+            int thisValue = this.moves() + this.curWorldState().estimatedDistanceToGoal();
+            int oValue = o.moves() + o.curWorldState().estimatedDistanceToGoal();
+            return  thisValue - oValue;
         }
     }
 
@@ -45,8 +45,12 @@ public class Solver {
         pq = new MinPQ<>();
         SearchNodes initialSN = new SearchNodes(0, null, initial);
         pq.insert(initialSN);
-        while (!pq.isEmpty()) {
+        path = new Stack<>();
+        int i = 0;
+        while (!pq.isEmpty() && !pq.min().curWorldState().isGoal()) {
+            path.push(pq.min().curWorldState());
             relax(pq.delMin());
+            System.out.println(i++);
         }
 
 
@@ -57,7 +61,7 @@ public class Solver {
             return;
         } else {
             for (WorldState ws : sn.curWorldState().neighbors()) {
-                SearchNodes cur = new SearchNodes(sn.moves(), sn, ws);
+                SearchNodes cur = new SearchNodes(sn.moves() + 1, sn, ws);
                 pq.insert(cur);
             }
         }
@@ -68,9 +72,7 @@ public class Solver {
         return path.size();
     }
 
-    public Iterable<SearchNodes> solution() {
-
-
+    public Iterable<WorldState> solution() {
         return path;
     }
 }
