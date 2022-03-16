@@ -37,7 +37,7 @@ public class Solver {
         public int compareTo(SearchNodes o) {
             int thisValue = this.moves() + this.curWorldState().estimatedDistanceToGoal();
             int oValue = o.moves() + o.curWorldState().estimatedDistanceToGoal();
-            return  thisValue - oValue;
+            return thisValue - oValue;
         }
     }
 
@@ -46,13 +46,14 @@ public class Solver {
         SearchNodes initialSN = new SearchNodes(0, null, initial);
         pq.insert(initialSN);
         path = new Stack<>();
-        int i = 0;
-        while (!pq.isEmpty() && !pq.min().curWorldState().isGoal()) {
-            path.push(pq.min().curWorldState());
-            relax(pq.delMin());
-            System.out.println(i++);
-        }
+        while (!pq.isEmpty()) {
+            if (pq.min().curWorldState().isGoal()){
+                createPath(pq.min());
+                break;
+            }
 
+            relax(pq.delMin());
+        }
 
     }
 
@@ -62,14 +63,22 @@ public class Solver {
         } else {
             for (WorldState ws : sn.curWorldState().neighbors()) {
                 SearchNodes cur = new SearchNodes(sn.moves() + 1, sn, ws);
-                pq.insert(cur);
+                if (sn.previous == null || !ws.equals(sn.previous.curWorldState())) {
+                    pq.insert(cur);
+                }
             }
         }
 
     }
+    private void createPath(SearchNodes sn){
+        while (sn != null){
+            path.push(sn.curWorldState());
+            sn = sn.previousNode();
+        }
+    }
 
     public int moves() {
-        return path.size();
+        return path.size() - 1;
     }
 
     public Iterable<WorldState> solution() {
