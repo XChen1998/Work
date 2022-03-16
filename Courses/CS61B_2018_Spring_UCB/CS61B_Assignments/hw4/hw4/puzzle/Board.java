@@ -121,6 +121,9 @@ public class Board implements WorldState {
             return false;
         }
         int[][] yArray = ((Board) y).tiles;
+        if (yArray.length != this.size){
+            return false;
+        }
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if (!(this.tiles[i][j] == yArray[i][j])) {
