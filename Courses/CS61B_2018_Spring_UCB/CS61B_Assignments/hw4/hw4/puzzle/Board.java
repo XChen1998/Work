@@ -114,7 +114,10 @@ public class Board implements WorldState {
 
     @Override
     public boolean equals(Object y) {
-        if (y.getClass() != this.getClass()) {
+        if (this == y) {
+            return true;
+        }
+        if (y == null || y.getClass() != this.getClass()) {
             return false;
         }
         int[][] yArray = ((Board) y).tiles;
