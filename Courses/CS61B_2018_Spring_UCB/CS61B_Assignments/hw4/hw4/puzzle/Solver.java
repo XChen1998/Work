@@ -3,8 +3,6 @@ package hw4.puzzle;
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.algs4.Stack;
 
-import java.util.Comparator;
-
 public class Solver {
 
     private MinPQ<SearchNodes> pq;
@@ -14,11 +12,13 @@ public class Solver {
         private int numOfMoves;
         private SearchNodes previous;
         private WorldState ws;
+        private int distanceToGoal;
 
-        public SearchNodes(int numOfMoves, SearchNodes previous, WorldState ws) {
+        SearchNodes(int numOfMoves, SearchNodes previous, WorldState ws) {
             this.numOfMoves = numOfMoves;
             this.previous = previous;
             this.ws = ws;
+            this.distanceToGoal = ws.estimatedDistanceToGoal();
         }
 
         public int moves() {
@@ -35,8 +35,8 @@ public class Solver {
 
         @Override
         public int compareTo(SearchNodes o) {
-            int thisValue = this.moves() + this.curWorldState().estimatedDistanceToGoal();
-            int oValue = o.moves() + o.curWorldState().estimatedDistanceToGoal();
+            int thisValue = this.moves() + this.distanceToGoal;
+            int oValue = o.moves() + o.distanceToGoal;
             return thisValue - oValue;
         }
     }
@@ -47,11 +47,10 @@ public class Solver {
         pq.insert(initialSN);
         path = new Stack<>();
         while (!pq.isEmpty()) {
-            if (pq.min().curWorldState().isGoal()){
+            if (pq.min().curWorldState().isGoal()) {
                 createPath(pq.min());
                 break;
             }
-
             relax(pq.delMin());
         }
 
@@ -70,8 +69,9 @@ public class Solver {
         }
 
     }
-    private void createPath(SearchNodes sn){
-        while (sn != null){
+
+    private void createPath(SearchNodes sn) {
+        while (sn != null) {
             path.push(sn.curWorldState());
             sn = sn.previousNode();
         }
