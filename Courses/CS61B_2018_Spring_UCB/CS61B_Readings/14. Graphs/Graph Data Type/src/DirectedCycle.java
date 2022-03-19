@@ -46,8 +46,8 @@ public class DirectedCycle {
     public static void main(String[] args) {
         Digraph G = new Digraph(new In(args[0]));
         DirectedCycle cycle = new DirectedCycle(G);
-        if (cycle.hasCycle()){
-            for (int i: cycle.cycle()){
+        if (cycle.hasCycle()) {
+            for (int i : cycle.cycle()) {
                 StdOut.print(i + " ");
             }
         }
