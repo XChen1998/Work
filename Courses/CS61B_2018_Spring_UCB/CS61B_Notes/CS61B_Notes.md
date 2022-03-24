@@ -6843,6 +6843,109 @@ This homework provides a good example of the performance and behaviours of `hash
 
 
 
+### 4. Puzzle Solver
+
+This homework is a good example of the *best-first search A\* algorithm*. Please consult my [repository](https://github.com/XChen1998/Work/tree/main/Courses/CS61B_2018_Spring_UCB/CS61B_Assignments/hw4) for full implementation of the homework. 
+
+
+
+The solver class is shown below. 
+
+```Java
+package hw4.puzzle;
+
+import edu.princeton.cs.algs4.MinPQ;
+import edu.princeton.cs.algs4.Stack;
+
+public class Solver {
+
+    private MinPQ<SearchNodes> pq;
+    private Stack<WorldState> path;
+
+    private class SearchNodes implements Comparable<SearchNodes> {
+        private int numOfMoves;
+        private SearchNodes previous;
+        private WorldState ws;
+        private int distanceToGoal;
+
+        SearchNodes(int numOfMoves, SearchNodes previous, WorldState ws) {
+            this.numOfMoves = numOfMoves;
+            this.previous = previous;
+            this.ws = ws;
+            this.distanceToGoal = ws.estimatedDistanceToGoal();
+        }
+
+        public int moves() {
+            return numOfMoves;
+        }
+
+        public SearchNodes previousNode() {
+            return previous;
+        }
+
+        public WorldState curWorldState() {
+            return ws;
+        }
+
+        @Override
+        public int compareTo(SearchNodes o) {
+            int thisValue = this.moves() + this.distanceToGoal;
+            int oValue = o.moves() + o.distanceToGoal;
+            return thisValue - oValue;
+        }
+    }
+
+    public Solver(WorldState initial) {
+        pq = new MinPQ<>();
+        SearchNodes initialSN = new SearchNodes(0, null, initial);
+        pq.insert(initialSN);
+        path = new Stack<>();
+        while (!pq.isEmpty()) {
+            if (pq.min().curWorldState().isGoal()) {
+                createPath(pq.min());
+                break;
+            }
+            relax(pq.delMin());
+        }
+
+    }
+
+    private void relax(SearchNodes sn) {
+        if (sn.curWorldState().isGoal()) {
+            return;
+        } else {
+            for (WorldState ws : sn.curWorldState().neighbors()) {
+                SearchNodes cur = new SearchNodes(sn.moves() + 1, sn, ws);
+                if (sn.previous == null || !ws.equals(sn.previous.curWorldState())) {
+                    pq.insert(cur);
+                }
+            }
+        }
+
+    }
+
+    private void createPath(SearchNodes sn) {
+        while (sn != null) {
+            path.push(sn.curWorldState());
+            sn = sn.previousNode();
+        }
+    }
+
+    public int moves() {
+        return path.size() - 1;
+    }
+
+    public Iterable<WorldState> solution() {
+        return path;
+    }
+}
+
+```
+
+The key of this homework is the implementation of the sub-class, `SearchNode`, which records the history of a search attempt and any relevant parameters. It also redefine the `compareTo` method which implement the `Comparable<SearchNodes>` interface. The `Solver` class makes use of the `SearchNode` sub-class and the `relax` method. In summary, this homework is not straightforward but can be done smoothly if you fully understand the concept and philosophy of the *best-first search A\* algorithm*. More details can be found in the [guidance page](https://sp18.datastructur.es/materials/hw/hw4/hw4).
+
+
+
 
 
 ## *Extra*: Discussions
