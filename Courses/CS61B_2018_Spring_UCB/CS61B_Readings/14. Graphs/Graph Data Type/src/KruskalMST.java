@@ -16,7 +16,9 @@ public class KruskalMST {
         while (!pq.isEmpty() && mst.size() < G.V() - 1) {
             Edge e = pq.delMin(); // Get min weight edge on pq
             int v = e.either(), w = e.other(v); // and its vertices.
-            if (uf.connected(v, w)) continue; // Ignore ineligible edges.
+            if (uf.connected(v, w)) {
+                continue;
+            } // Ignore ineligible edges. (XC: That is what we called circle in the lecture.)
             uf.union(v, w); // Merge components.
             mst.enqueue(e); // Add edge to mst.
         }
