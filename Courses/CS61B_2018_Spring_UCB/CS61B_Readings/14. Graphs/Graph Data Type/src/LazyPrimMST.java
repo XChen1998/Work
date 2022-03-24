@@ -212,5 +212,4 @@ public class LazyPrimMST {
         }
         StdOut.printf("%.5f\n", mst.weight());
     }
-
 }
