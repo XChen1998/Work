@@ -1,7 +1,5 @@
 package lab11.graphs;
 
-import edu.princeton.cs.algs4.Stack;
-
 /**
  * @author Josh Hug
  */
