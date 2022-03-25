@@ -33,7 +33,6 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
         announce();
         while (!edges.isEmpty()) {
             int curVertex = edges.dequeue();
-            marked[curVertex] = true;
             announce();
             if (curVertex == t) {
                 return;
@@ -43,6 +42,7 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
                     edgeTo[w] = curVertex;
                     distTo[w] = distTo[curVertex] + 1;
                     edges.enqueue(w);
+                    marked[w] = true;
                 }
             }
         }
