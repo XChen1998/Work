@@ -12,18 +12,21 @@ public class MazeCycles extends MazeExplorer {
     public boolean[] marked;
     */
     private int[] circleList;
+    private boolean hasCircle;
 
     public MazeCycles(Maze m) {
         super(m);
         circleList = new int[m.V()];
         maze = m;
         circleList[0] = 0;
+        hasCircle = false;
     }
 
     @Override
     public void solve() {
         dfsCircle(0);
         announce();
+        return;
     }
 
 
@@ -31,20 +34,25 @@ public class MazeCycles extends MazeExplorer {
     private void dfsCircle(int v) {
         marked[v] = true;
         announce();
-        System.out.println(v);
         for (int w : maze.adj(v)) {
             if (!marked[w]) {
-                if (w != v){
+                circleList[w] = v;
+            } else {
+                if (circleList[v] != w) {
+                    circleList[w] = v;
                     int next = circleList[w];
                     int previous = w;
-                    while (next != w){
+                    while (next != w) {
                         edgeTo[next] = previous;
                         previous = next;
                         next = circleList[previous];
                     }
+                    edgeTo[w] = previous;
+                    hasCircle = true;
                     return;
                 }
-                circleList[w] = v;
+            }
+            if (!marked[w] & !hasCircle) {
                 dfsCircle(w);
             }
         }

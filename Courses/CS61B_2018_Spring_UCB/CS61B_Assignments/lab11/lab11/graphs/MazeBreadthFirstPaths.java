@@ -36,7 +36,6 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
             System.out.println(curVertex);
             marked[curVertex] = true;
             announce();
-
             if (curVertex == t) {
                 return;
             }
