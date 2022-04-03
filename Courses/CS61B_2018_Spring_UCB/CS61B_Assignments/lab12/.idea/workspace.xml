@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/../lab12.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../lab12.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/MergeSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab12/MergeSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab12/MergeSort.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +32,7 @@
     <property name="project.structure.side.proportion" value="0.6034483" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
-  <component name="RunManager" selected="Application.QuickSort">
+  <component name="RunManager" selected="Application.MergeSort">
     <configuration name="MergeSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MergeSort" />
       <module name="lab12" />
@@ -48,8 +49,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.QuickSort" />
         <item itemvalue="Application.MergeSort" />
+        <item itemvalue="Application.QuickSort" />
       </list>
     </recent_temporary>
   </component>
@@ -74,16 +75,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MergeSort.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

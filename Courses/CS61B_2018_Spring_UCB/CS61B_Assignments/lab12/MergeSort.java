@@ -1,5 +1,7 @@
 import edu.princeton.cs.algs4.Queue;
 
+import java.util.Random;
+
 public class MergeSort {
     /**
      * Removes and returns the smallest item that is in q1 or q2.
@@ -70,36 +72,48 @@ public class MergeSort {
     /**
      * Returns a Queue that contains the given items sorted from least to greatest.
      */
+//    public static <Item extends Comparable> Queue<Item> mergeSort(
+//            Queue<Item> items) {
+//
+//        if (items.size() <= 1) {
+//            return items;
+//        }
+//        int midPoint = items.size() / 2;
+//        Queue<Item> q1 = new Queue<>();
+//        Queue<Item> q2 = new Queue<>();
+//        for (int i = 0; i < midPoint; i++) {
+//            q1.enqueue(items.dequeue());
+//        }
+//        while (!items.isEmpty()) {
+//            q2.enqueue(items.dequeue());
+//        }
+//        return (mergeSortedQueues(mergeSort(q1), mergeSort(q2)));
+//    }
     public static <Item extends Comparable> Queue<Item> mergeSort(
             Queue<Item> items) {
         if (items.size() <= 1) {
             return items;
         }
-        int midPoint = items.size() / 2;
-        Queue<Item> q1 = new Queue<>();
-        Queue<Item> q2 = new Queue<>();
-        for (int i = 0; i < midPoint; i++) {
-            q1.enqueue(items.dequeue());
+        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
+
+        while (singleQueue.size() > 1) {
+            Queue<Item> p = singleQueue.dequeue();
+            Queue<Item> q = singleQueue.dequeue();
+            singleQueue.enqueue(mergeSortedQueues(p, q));
         }
-        while (!items.isEmpty()) {
-            q2.enqueue(items.dequeue());
-        }
-        q1 = mergeSort(q1);
-        q2 = mergeSort(q2);
-        return (mergeSortedQueues(q1, q2));
+        return singleQueue.dequeue();
     }
 
     public static void main(String[] args) {
-        Queue<String> students = new Queue<String>();
-        students.enqueue("Rose");
-        students.enqueue("Cathy");
-        students.enqueue("Alice");
-        students.enqueue("Ethan");
-        students.enqueue("Vanessa");
-        students.enqueue("Bob");
-        students.enqueue("Edouard");
-        students.enqueue("Tony");
-        System.out.println(students);
-        System.out.println(MergeSort.mergeSort(students));
+        for (int i = 0; i < 500; i++) {
+            Queue<Integer> students = new Queue<>();
+            for (int j = 0; j < i; j++) {
+                Random random = new Random();
+                students.enqueue(random.nextInt(10));
+            }
+            System.out.println(students);
+            System.out.println(MergeSort.mergeSort(students));
+            System.out.println();
+        }
     }
 }
