@@ -72,10 +72,7 @@ public class MergeSort {
      */
     public static <Item extends Comparable> Queue<Item> mergeSort(
             Queue<Item> items) {
-        if (items.isEmpty()) {
-            return null;
-        }
-        if (items.size() == 1) {
+        if (items.size() <= 1) {
             return items;
         }
         int midPoint = items.size() / 2;
