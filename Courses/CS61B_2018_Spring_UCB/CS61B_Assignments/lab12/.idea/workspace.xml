@@ -2,24 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9775e584-dfbf-41b3-a961-99842a8a306f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javalib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lab12.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/.idea/libraries/javalib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/MergeSort.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/QuickSort.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/lab12/lab12.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QuickSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/QuickSort.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +79,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MergeSort.java</url>
-          <line>62</line>
+          <line>63</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>

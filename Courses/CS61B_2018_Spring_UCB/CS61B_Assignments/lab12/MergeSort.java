@@ -35,7 +35,8 @@ public class MergeSort {
      * Returns a queue of queues that each contain one item from items.
      */
     /*XChen: I really do not understand why there is such a redundant method.*/
-    private static <Item extends Comparable> Queue<Queue<Item>> makeSingleItemQueues(Queue<Item> items) {
+    private static <Item extends Comparable> Queue<Queue<Item>>
+        makeSingleItemQueues(Queue<Item> items) {
         Queue<Queue<Item>> returned = new Queue<>();
         for (Item item : items) {
             Queue<Item> cur = new Queue<>();
@@ -71,16 +72,19 @@ public class MergeSort {
      */
     public static <Item extends Comparable> Queue<Item> mergeSort(
             Queue<Item> items) {
+        if (items.isEmpty()) {
+            return null;
+        }
         if (items.size() == 1) {
             return items;
         }
-        int midPoint = items.size()/2;
+        int midPoint = items.size() / 2;
         Queue<Item> q1 = new Queue<>();
         Queue<Item> q2 = new Queue<>();
-        for (int i = 0; i < midPoint; i++){
+        for (int i = 0; i < midPoint; i++) {
             q1.enqueue(items.dequeue());
         }
-        while (!items.isEmpty()){
+        while (!items.isEmpty()) {
             q2.enqueue(items.dequeue());
         }
         q1 = mergeSort(q1);
