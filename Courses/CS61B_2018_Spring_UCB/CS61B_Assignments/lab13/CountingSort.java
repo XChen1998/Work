@@ -53,7 +53,7 @@ public class CountingSort {
         }
 
         // return the sorted array
-        return sorted;
+        return sorted2;
     }
 
     /**
@@ -93,7 +93,8 @@ public class CountingSort {
             int[] sortedReverseNegativePart = naiveCountingSort(negativePart);
             int[] sortedNegativePart = new int[sortedReverseNegativePart.length];
             for (int i = 0; i < sortedReverseNegativePart.length; i++) {
-                sortedNegativePart[sortedNegativePart.length - i - 1] = -sortedReverseNegativePart[i];
+                sortedNegativePart[sortedNegativePart.length - i - 1] =
+                        -sortedReverseNegativePart[i];
             }
             int[] sortedNonNegativePart = naiveCountingSort(nonNegativePart);
             int[] returned = new int[sortedNegativePart.length + sortedNonNegativePart.length];
