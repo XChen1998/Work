@@ -88,7 +88,8 @@ public class RadixSort {
 
     @Test
     public void testSort() {
-        String[] test = {"a", "abc", "d", "k", "mdn", "jdc", "fa", "za", "az", "zzz", "aaa", "mqwd", "dcdcc", "qwd"};
+        String[] test = {"a", "abc", "d", "k", "mdn",
+            "jdc", "fa", "za", "az", "zzz", "aaa", "mqwd", "dcdcc", "qwd"};
 
         String[] sorted = sort(test);
         for (String s : test) {
