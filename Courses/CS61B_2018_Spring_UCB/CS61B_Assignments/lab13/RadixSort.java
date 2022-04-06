@@ -39,10 +39,14 @@ public class RadixSort {
      * @param index  The position to sort the Strings on.
      */
     private static void sortHelperLSD(String[] asciis, int index) {
+        /*XChen: In this example, we use counting sort,
+        but we can also use other ways to sort them. (Merge sort etc.)*/
         int[] intArray = new int[asciis.length];
         for (int i = 0; i < asciis.length; i++) {
             intArray[i] = char2int(asciis[i], index);
         }
+
+
         int[] counts = new int[256];
         for (int i : intArray) {
             counts[i]++;
