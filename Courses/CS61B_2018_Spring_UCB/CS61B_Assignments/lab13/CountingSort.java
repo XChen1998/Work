@@ -2,7 +2,6 @@
  * Class with 2 ways of doing Counting sort, one naive way and one "better" way
  *
  * @author Akhil Batra, Alexander Hwang
- *
  **/
 public class CountingSort {
     /**
@@ -66,7 +65,48 @@ public class CountingSort {
      * @param arr int array that will be sorted
      */
     public static int[] betterCountingSort(int[] arr) {
-        // TODO make counting sort work with arrays containing negative numbers.
-        return null;
+        int negtiveNum = 0;
+        int nonNegativeNum = 0;
+        for (int i : arr) {
+            if (i < 0) {
+                negtiveNum += 1;
+            } else {
+                nonNegativeNum += 1;
+            }
+        }
+        if (negtiveNum == 0) {
+            return naiveCountingSort(arr);
+        } else {
+            int[] negativePart = new int[negtiveNum];
+            int[] nonNegativePart = new int[nonNegativeNum];
+            int curNegativePos = 0;
+            int curNonNegativePos = 0;
+            for (int i : arr) {
+                if (i < 0) {
+                    negativePart[curNegativePos] = -i;
+                    curNegativePos++;
+                } else {
+                    nonNegativePart[curNonNegativePos] = i;
+                }
+
+            }
+            int[] sortedReverseNegativePart = naiveCountingSort(negativePart);
+            int[] sortedNegativePart = new int[sortedReverseNegativePart.length];
+            for (int i = 0; i < sortedReverseNegativePart.length; i++) {
+                sortedNegativePart[sortedNegativePart.length - i - 1] = -sortedReverseNegativePart[i];
+            }
+            int[] sortedNonNegativePart = naiveCountingSort(nonNegativePart);
+            int[] returned = new int[sortedNegativePart.length + sortedNonNegativePart.length];
+            int curReturnedPos = 0;
+            for (int i : sortedNegativePart) {
+                returned[curReturnedPos] = i;
+                curReturnedPos++;
+            }
+            for (int i : sortedNonNegativePart) {
+                returned[curReturnedPos] = i;
+                curReturnedPos++;
+            }
+            return returned;
+        }
     }
 }
