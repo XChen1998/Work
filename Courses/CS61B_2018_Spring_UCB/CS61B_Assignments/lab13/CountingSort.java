@@ -64,7 +64,9 @@ public class CountingSort {
      *
      * @param arr int array that will be sorted
      */
-    public static int[] betterCountingSort(int[] arr) {
+
+    /*XChen: This method is pretty lazy. It is easy but not very fast :(*//*
+    public static int[] betterCountingSortLazy(int[] arr) {
         int negtiveNum = 0;
         int nonNegativeNum = 0;
         for (int i : arr) {
@@ -109,5 +111,35 @@ public class CountingSort {
             }
             return returned;
         }
+    }*/
+
+    public static int[] betterCountingSort(int[] arr) {
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for (int i : arr) {
+            max = max > i ? max : i;
+            min = min < i ? min : i;
+        }
+        int[] counts = new int[max - min + 1];
+
+        for (int i : arr){
+            counts[i - min]++;
+        }
+
+        int[] pos = new int [max - min + 1];
+        int cumulativePos = 0;
+        for (int i = 0; i < counts.length; i++){
+            pos[i] = cumulativePos;
+            cumulativePos += counts[i];
+        }
+
+        int[] sorted = new int [arr.length];
+        for (int i : arr){
+            sorted[pos[i - min]] = i;
+            pos[i - min]++;
+        }
+
+        return sorted;
     }
+
 }
