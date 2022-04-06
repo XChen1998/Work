@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 /**
  * Class for doing Radix sort
  *
@@ -18,7 +20,14 @@ public class RadixSort {
         for (int i = 0; i < asciis.length; i++) {
             sorted[i] = asciis[i];
         }
-        sortHelperLSD(sorted, 1);
+        int maxLength = Integer.MIN_VALUE;
+        for (String s : sorted) {
+            maxLength = maxLength > s.length() ? maxLength : s.length();
+        }
+        for (int i = maxLength - 1; i >= 0; i--) {
+            sortHelperLSD(sorted, i);
+        }
+
         return sorted;
     }
 
@@ -30,17 +39,37 @@ public class RadixSort {
      * @param index  The position to sort the Strings on.
      */
     private static void sortHelperLSD(String[] asciis, int index) {
-
-        int[] asciisNum = new int[asciis.length];
+        int[] intArray = new int[asciis.length];
         for (int i = 0; i < asciis.length; i++) {
-            char curChar = asciis[i].charAt(asciis.length - index - 1);
-            asciisNum[i] = (int) curChar;
+            intArray[i] = char2int(asciis[i], index);
+        }
+        int[] counts = new int[256];
+        for (int i : intArray) {
+            counts[i]++;
+        }
+        int[] pos = new int[counts.length];
+        int cumulativePos = 0;
+        for (int i = 0; i < counts.length; i++) {
+            pos[i] = cumulativePos;
+            cumulativePos += counts[i];
+        }
+        String[] sorted = new String[asciis.length];
+        for (int i = 0; i < asciis.length; i++) {
+            sorted[pos[intArray[i]]] = asciis[i];
+            pos[intArray[i]]++;
         }
 
-        int curDivisor = (int) Math.pow(10, index);
+        for (int i = 0; i < asciis.length; i++) {
+            asciis[i] = sorted[i];
+        }
+    }
 
-
-        return;
+    private static int char2int(String s, int index) {
+        if (s.length() > index) {
+            return (int) s.charAt(index);
+        } else {
+            return 0;
+        }
     }
 
     /**
@@ -53,7 +82,21 @@ public class RadixSort {
      * @param index  the index of the character the method is currently sorting on
      **/
     private static void sortHelperMSD(String[] asciis, int start, int end, int index) {
-        // Optional MSD helper method for optional MSD radix sort
+        // Optional MSD helper method for optional MSD radix sorts
         return;
+    }
+
+    @Test
+    public void testSort() {
+        String[] test = {"a", "abc", "d", "k", "mdn", "jdc", "fa", "za", "az", "zzz", "aaa", "mqwd", "dcdcc", "qwd"};
+
+        String[] sorted = sort(test);
+        for (String s : test) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+        for (String s : sorted) {
+            System.out.print(s + " ");
+        }
     }
 }
