@@ -112,7 +112,6 @@ public class CountingSort {
             return returned;
         }
     }*/
-
     public static int[] betterCountingSort(int[] arr) {
         int max = Integer.MIN_VALUE;
         int min = Integer.MAX_VALUE;
@@ -122,19 +121,19 @@ public class CountingSort {
         }
         int[] counts = new int[max - min + 1];
 
-        for (int i : arr){
+        for (int i : arr) {
             counts[i - min]++;
         }
 
-        int[] pos = new int [max - min + 1];
+        int[] pos = new int[max - min + 1];
         int cumulativePos = 0;
-        for (int i = 0; i < counts.length; i++){
+        for (int i = 0; i < counts.length; i++) {
             pos[i] = cumulativePos;
             cumulativePos += counts[i];
         }
 
-        int[] sorted = new int [arr.length];
-        for (int i : arr){
+        int[] sorted = new int[arr.length];
+        for (int i : arr) {
             sorted[pos[i - min]] = i;
             pos[i - min]++;
         }
