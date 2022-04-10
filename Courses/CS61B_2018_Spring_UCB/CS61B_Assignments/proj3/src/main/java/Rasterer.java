@@ -1,9 +1,6 @@
-import edu.princeton.cs.algs4.Queue;
-import edu.princeton.cs.algs4.Stack;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+
+import java.util.*;
 
 /**
  * This class provides all code necessary to take a query box and produce
@@ -81,29 +78,29 @@ public class Rasterer {
     }
 
     private static String[][] getPictureList(double ullon, double lrlon, double ullat, double lrlat, int degree) {
-        Stack<Integer> lonList = new Stack<Integer>();
-        Queue<Integer> latList = new Queue<Integer>();
+        Deque<Integer> lonList = new ArrayDeque<>();
+        Deque<Integer> latList = new ArrayDeque<>();
         int maxPicIndex = (int) Math.pow(2, degree);
-        for (int i = maxPicIndex - 1; i >= 0; i--) {
+        for (int i = 0; i <= maxPicIndex; i++) {
             double lon = index2lonCoordinate(i, degree);
             if (ullon <= lon && lon <= lrlon) {
-                lonList.push(i);
+                lonList.add(i);
             }
         }
-        lonList.push(lonList.peek() - 1);
+        lonList.addFirst(lonList.peekFirst() - 1);
         for (int i = 0; i < maxPicIndex; i++) {
             double lat = index2latCoordinate(i, degree);
-            if (ullat <= lat && lat >= lrlat) {
-                latList.enqueue(i);
+            if (ullat >= lat && lat >= lrlat) {
+                latList.add(i);
             }
         }
-        latList.enqueue(latList.peek() + 1);
+        latList.push(latList.peekFirst() - 1);
         String[][] pictureList = new String[lonList.size()][latList.size()];
         int curLatPos = 0;
 
-        for (int latIndex : lonList) {
+        for (int latIndex : latList) {
             int curLonPos = 0;
-            for (int lonIndex : latList) {
+            for (int lonIndex : lonList) {
                 String curImageName = "d" + degree + "_x" + lonIndex + "_y" + latIndex + ".png";
                 pictureList[curLatPos][curLonPos] = curImageName;
                 curLonPos++;
@@ -111,10 +108,12 @@ public class Rasterer {
             curLatPos++;
         }
 
+        int peek = lonList.peek();
+        int peekFirst = lonList.peekFirst();
         raster_ul_lon = index2lonCoordinate(lonList.peek(), degree);
-        raster_lr_lon = index2lonCoordinate(lonList.peek() - lonList.size() + 1, degree);
+        raster_lr_lon = raster_ul_lon + lonList.size() * Math.abs(ulon - llon) / (int) Math.pow(2, degree);
         raster_ul_lat = index2latCoordinate(latList.peek(), degree);
-        raster_lr_lat = index2latCoordinate(latList.peek() - lonList.size() + 1, degree);
+        raster_lr_lat = raster_ul_lat - latList.size() * Math.abs(ulat - llat) / (int) Math.pow(2, degree);
         return pictureList;
 
     }
