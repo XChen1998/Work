@@ -148,6 +148,7 @@ public class GraphBuildingHandler extends DefaultHandler {
                 }
             }
             curSpots.clear();
+            flag = false;
         }
     }
 

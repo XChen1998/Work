@@ -248,7 +248,7 @@ public class GraphDB {
         for (Long nodeIndex : nodeSet) {
             double curLon = nodes.get(nodeIndex).getLongitude();
             double curLat = nodes.get(nodeIndex).getLatitude();
-            double curDistance = distance(curLat, curLon, lon, lat);
+            double curDistance = distance(curLon, curLat, lon, lat);
             if (curDistance < minDistance) {
                 minDistance = curDistance;
                 closestNodeIndex = nodeIndex;

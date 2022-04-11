@@ -8,6 +8,8 @@
 	<node id="55" lat="38.5" lon="0.5" version="1"/>
 	<node id="46" lat="38.6" lon="0.4" version="1"/>						
 	<node id="66" lat="38.6" lon="0.6" version="1"/>						
+	<node id="69" lat="38.0" lon="0.2" version="1"/>	
+	
 	<way id="114163" version="1">
 		<nd ref="11"/>
 		<nd ref="41"/>
@@ -45,6 +47,15 @@
 		<tag k="name" v="scenic 22/55/63/66 highway"/>
 		<tag k="oneway" v="no"/>
 		<tag k="highway" v="tertiary"/>
+		<tag k="maxspeed" v="25 mph"/>
+		<tag k="sidewalk" v="both"/>
+	</way>	
+	<way id="22552366" version="1">
+		<nd ref="69"/>
+		<nd ref="22"/>		
+		<tag k="name" v="scenic 22/55/63/66 highway"/>
+		<tag k="oneway" v="no"/>
+		<tag k="highway" v="tfdd"/>
 		<tag k="maxspeed" v="25 mph"/>
 		<tag k="sidewalk" v="both"/>
 	</way>	
