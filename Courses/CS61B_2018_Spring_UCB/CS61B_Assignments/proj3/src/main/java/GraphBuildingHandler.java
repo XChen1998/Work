@@ -56,11 +56,13 @@ public class GraphBuildingHandler extends DefaultHandler {
      * Called at the beginning of an element. Typically, you will want to handle each element in
      * here, and you may want to track the parent element.
      *
-     * @param uri        The Namespace URI, or the empty string if the element has no Namespace URI or
+     * @param uri        The Namespace URI, or the empty string
+     *                   if the element has no Namespace URI or
      *                   if Namespace processing is not being performed.
      * @param localName  The local name (without prefix), or the empty string if Namespace
      *                   processing is not being performed.
-     * @param qName      The qualified name (with prefix), or the empty string if qualified names are
+     * @param qName      The qualified name (with prefix),
+     *                   or the empty string if qualified names are
      *                   not available. This tells us which element we're looking at.
      * @param attributes The attributes attached to the element. If there are no attributes, it
      *                   shall be an empty Attributes object.
@@ -80,7 +82,8 @@ public class GraphBuildingHandler extends DefaultHandler {
             System.out.println("Node lat: " + attributes.getValue("lat"));*/
             /* Hint: A graph-like structure would be nice. */
             g.addNode(Long.parseLong(attributes.getValue("id")),
-                    Double.parseDouble(attributes.getValue("lon")), Double.parseDouble(attributes.getValue("lat")), null);
+                    Double.parseDouble(attributes.getValue("lon")),
+                    Double.parseDouble(attributes.getValue("lat")), null);
 
         } else if (qName.equals("way")) {
             /* We encountered a new <way...> tag. */
@@ -95,7 +98,7 @@ public class GraphBuildingHandler extends DefaultHandler {
             String k = attributes.getValue("k");
             String v = attributes.getValue("v");
             if (k.equals("maxspeed")) {
-                //System.out.println("Max Speed: " + v);
+                double maxspeed = Double.parseDouble("k");
             } else if (k.equals("highway")) {
                 if (ALLOWED_HIGHWAY_TYPES.contains(v)) {
                     flag = true;
@@ -103,7 +106,7 @@ public class GraphBuildingHandler extends DefaultHandler {
                     flag = false;
                 }
             } else if (k.equals("name")) {
-                //System.out.println("Way Name: " + v);
+                String name = k;
             }
 
             //System.out.println("Tag with k=" + k + ", v=" + v + ".");
@@ -111,7 +114,7 @@ public class GraphBuildingHandler extends DefaultHandler {
                 .equals("name")) {
             /* While looking at a node, we found a <tag...> with k="name". */
             /* TODO Create a location. */
-
+            String name = activeState;
             /* Hint: Since we found this <tag...> INSIDE a node, we should probably remember which
             node this tag belongs to. Remember XML is parsed top-to-bottom, so probably it's the
             last node that you looked at (check the first if-case). */
@@ -123,7 +126,8 @@ public class GraphBuildingHandler extends DefaultHandler {
      * Receive notification of the end of an element. You may want to take specific terminating
      * actions here, like finalizing vertices or edges found.
      *
-     * @param uri       The Namespace URI, or the empty string if the element has no Namespace URI or
+     * @param uri       The Namespace URI,
+     *                  or the empty string if the element has no Namespace URI or
      *                  if Namespace processing is not being performed.
      * @param localName The local name (without prefix), or the empty string if Namespace
      *                  processing is not being performed.
@@ -135,7 +139,8 @@ public class GraphBuildingHandler extends DefaultHandler {
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equals("way")) {
             if (flag) {
-                /* We are done looking at a way. (We finished looking at the nodes, speeds, etc...)*/
+                /* We are done looking at a way.
+                (We finished looking at the nodes, speeds, etc...)*/
             /* Hint1: If you have stored the possible connections for this way, here's your
             chance to actually connect the nodes together if the way is valid. */
 //            System.out.println("Finishing a way...");

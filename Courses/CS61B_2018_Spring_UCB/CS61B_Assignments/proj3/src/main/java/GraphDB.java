@@ -55,11 +55,11 @@ public class GraphDB {
         }
     }
 
-    private class Edge{
+    private class Edge {
         private long originIndex;
         private long otherIndex;
 
-        private Edge(long originIndex, long otherIndex){
+        private Edge(long originIndex, long otherIndex) {
             this.originIndex = originIndex;
             this.otherIndex = otherIndex;
         }
@@ -102,30 +102,31 @@ public class GraphDB {
     }
 
 
-    void addNode(long index, double longitude, double latitude, String name){
+    void addNode(long index, double longitude, double latitude, String name) {
         nodes.put(index, new Node(index, longitude, latitude, name));
     }
 
-    void removeNode(long index){
+    void removeNode(long index) {
         nodes.remove(index);
     }
 
-    void addEdge(long origin, long other){
+    void addEdge(long origin, long other) {
         tempEdges.add(new Edge(origin, other));
     }
 
-    void addEdges(){
-        for (Edge e : tempEdges){
+    void addEdges() {
+        for (Edge e : tempEdges) {
             adjacentList.put(e.originIndex, new Bag<>());
             adjacentList.put(e.otherIndex, new Bag<>());
         }
-        for (Edge e : tempEdges){
-            adjacentList.get(e.originIndex).add(new WeightedEdge(nodes.get(e.originIndex), nodes.get(e.otherIndex)));
-            adjacentList.get(e.otherIndex).add(new WeightedEdge(nodes.get(e.otherIndex), nodes.get(e.originIndex)));
+        for (Edge e : tempEdges) {
+            adjacentList.get(e.originIndex).add(
+                    new WeightedEdge(nodes.get(e.originIndex), nodes.get(e.otherIndex)));
+            adjacentList.get(e.otherIndex).add(
+                    new WeightedEdge(nodes.get(e.otherIndex), nodes.get(e.originIndex)));
         }
         tempEdges = new Bag<>();
     }
-
 
 
     /**
@@ -151,7 +152,7 @@ public class GraphDB {
                 invalidNodes.add(nodeIndex);
             }
         }
-        for (Long invalidNodeIndex : invalidNodes){
+        for (Long invalidNodeIndex : invalidNodes) {
             removeNode(invalidNodeIndex);
         }
     }
