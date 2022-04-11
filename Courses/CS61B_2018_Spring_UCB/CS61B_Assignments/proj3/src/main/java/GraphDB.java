@@ -1,3 +1,4 @@
+import edu.princeton.cs.algs4.Bag;
 import org.xml.sax.SAXException;
 
 import java.io.File;
@@ -6,7 +7,8 @@ import java.io.IOException;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 /**
  * Graph for storing all of the intersection (vertex) and road (edge) information.
@@ -18,14 +20,67 @@ import java.util.ArrayList;
  * @author Alan Yao, Josh Hug
  */
 public class GraphDB {
-    /** Your instance variables for storing the graph. You should consider
-     * creating helper classes, e.g. Node, Edge, etc. */
+    /**
+     * Your instance variables for storing the graph. You should consider
+     * creating helper classes, e.g. Node, Edge, etc.
+     */
+    private HashMap<Long, Node> nodes = new HashMap<>();
+    private Bag<Edge> tempEdges = new Bag<>();
+    private HashMap<Long, Bag<WeightedEdge>> adjacentList = new HashMap<>();
+
+    private class Node {
+        private long index;
+        private double longitude;
+        private double latitude;
+
+        private Node(long index, double longitude, double latitude) {
+            this.index = index;
+            this.longitude = longitude;
+            this.latitude = latitude;
+        }
+
+        public long getIndex() {
+            return index;
+        }
+
+        public double getLongitude() {
+            return longitude;
+        }
+
+        public double getLatitude() {
+            return latitude;
+        }
+    }
+
+    private class Edge{
+        private long originIndex;
+        private long otherIndex;
+
+        private Edge(long originIndex, long otherIndex){
+            this.originIndex = originIndex;
+            this.otherIndex = otherIndex;
+        }
+    }
+
+    private class WeightedEdge {
+        private Node origin;
+        private Node other;
+        private double weight;
+
+        private WeightedEdge(Node origin, Node other) {
+            this.origin = origin;
+            this.other = other;
+            this.weight = distance(origin.getIndex(), other.getIndex());
+        }
+    }
 
     /**
      * Example constructor shows how to create and start an XML parser.
      * You do not need to modify this constructor, but you're welcome to do so.
+     *
      * @param dbPath Path to the XML file to be parsed.
      */
+
     public GraphDB(String dbPath) {
         try {
             File inputFile = new File(dbPath);
@@ -39,11 +94,33 @@ public class GraphDB {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
+
         clean();
+    }
+
+
+    void addNode(long index, double longitude, double latitude){
+        nodes.put(index, new Node(index, longitude, latitude));
+    }
+
+    void addEdge(long origin, long other){
+        tempEdges.add(new Edge(origin, other));
+    }
+
+    void addEdges(){
+        for (Edge e : tempEdges){
+            adjacentList.put(e.originIndex, new Bag<>());
+            adjacentList.put(e.otherIndex, new Bag<>());
+        }
+        for (Edge e : tempEdges){
+            adjacentList.get(e.originIndex).add(new WeightedEdge(nodes.get(e.originIndex), nodes.get(e.otherIndex)));
+            adjacentList.get(e.otherIndex).add(new WeightedEdge(nodes.get(e.otherIndex), nodes.get(e.originIndex)));
+        }
     }
 
     /**
      * Helper to process strings into their "cleaned" form, ignoring punctuation and capitalization.
+     *
      * @param s Input string.
      * @return Cleaned string.
      */
@@ -52,36 +129,49 @@ public class GraphDB {
     }
 
     /**
-     *  Remove nodes with no connections from the graph.
-     *  While this does not guarantee that any two nodes in the remaining graph are connected,
-     *  we can reasonably assume this since typically roads are connected.
+     * Remove nodes with no connections from the graph.
+     * While this does not guarantee that any two nodes in the remaining graph are connected,
+     * we can reasonably assume this since typically roads are connected.
      */
     private void clean() {
-        // TODO: Your code here.
+        Set<Long> nodeSet = nodes.keySet();
+        for (Long nodeIndex : nodeSet) {
+            if (!adjacentList.containsKey(nodeIndex)) {
+                nodes.remove(nodeIndex);
+            }
+        }
     }
 
     /**
      * Returns an iterable of all vertex IDs in the graph.
+     *
      * @return An iterable of id's of all vertices in the graph.
      */
     Iterable<Long> vertices() {
-        //YOUR CODE HERE, this currently returns only an empty list.
-        return new ArrayList<Long>();
+        Set<Long> vertices = nodes.keySet();
+        return vertices;
     }
 
     /**
      * Returns ids of all vertices adjacent to v.
+     *
      * @param v The id of the vertex we are looking adjacent to.
      * @return An iterable of the ids of the neighbors of v.
      */
     Iterable<Long> adjacent(long v) {
-        return null;
+        Bag<WeightedEdge> adjacentEdges = adjacentList.get(v);
+        Bag<Long> adjacent = new Bag<>();
+        for (WeightedEdge e : adjacentEdges) {
+            adjacent.add(e.other.getIndex());
+        }
+        return adjacent;
     }
 
     /**
      * Returns the great-circle distance between vertices v and w in miles.
      * Assumes the lon/lat methods are implemented properly.
      * <a href="https://www.movable-type.co.uk/scripts/latlong.html">Source</a>.
+     *
      * @param v The id of the first vertex.
      * @param w The id of the second vertex.
      * @return The great-circle distance between the two locations from the graph.
@@ -109,6 +199,7 @@ public class GraphDB {
      * end point.
      * Assumes the lon/lat methods are implemented properly.
      * <a href="https://www.movable-type.co.uk/scripts/latlong.html">Source</a>.
+     *
      * @param v The id of the first vertex.
      * @param w The id of the second vertex.
      * @return The initial bearing between the vertices.
@@ -131,29 +222,46 @@ public class GraphDB {
 
     /**
      * Returns the vertex closest to the given longitude and latitude.
+     *
      * @param lon The target longitude.
      * @param lat The target latitude.
      * @return The id of the node in the graph closest to the target.
      */
     long closest(double lon, double lat) {
-        return 0;
+        double minDistance = Double.MAX_VALUE;
+        Set<Long> nodeSet = nodes.keySet();
+        long closestNodeIndex = 0;
+        for (Long nodeIndex : nodeSet) {
+            double curLon = nodes.get(nodeIndex).getLongitude();
+            double curLat = nodes.get(nodeIndex).getLatitude();
+            double curDistance = distance(curLat, curLon, lon, lat);
+            if (curDistance < minDistance) {
+                minDistance = curDistance;
+                closestNodeIndex = nodeIndex;
+            }
+        }
+        return closestNodeIndex;
     }
 
     /**
      * Gets the longitude of a vertex.
+     *
      * @param v The id of the vertex.
      * @return The longitude of the vertex.
      */
     double lon(long v) {
-        return 0;
+        Node n = nodes.get(v);
+        return n.getLatitude();
     }
 
     /**
      * Gets the latitude of a vertex.
+     *
      * @param v The id of the vertex.
      * @return The latitude of the vertex.
      */
     double lat(long v) {
-        return 0;
+        Node n = nodes.get(v);
+        return n.getLongitude();
     }
 }
