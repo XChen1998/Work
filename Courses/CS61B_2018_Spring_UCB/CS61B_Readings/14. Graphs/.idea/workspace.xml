@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="20c9fed7-aff3-4546-b951-d48fdf765712" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javalib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/14. Graphs.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CS61B_Assignments/proj3/src/main/java/GraphBuildingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CS61B_Assignments/proj3/src/main/java/GraphBuildingHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../CS61B_Assignments/proj3/src/main/java/GraphDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CS61B_Assignments/proj3/src/main/java/GraphDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../CS61B_Assignments/proj3/src/main/java/GraphDBLauncher.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../CS61B_Assignments/proj3/src/main/java/GraphDBLauncher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

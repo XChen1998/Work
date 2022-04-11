@@ -32,12 +32,15 @@ public class GraphDB {
         private long index;
         private double longitude;
         private double latitude;
+        private String name;
 
-        private Node(long index, double longitude, double latitude) {
+        private Node(long index, double longitude, double latitude, String name) {
             this.index = index;
             this.longitude = longitude;
             this.latitude = latitude;
+            this.name = name;
         }
+
 
         public long getIndex() {
             return index;
@@ -94,13 +97,17 @@ public class GraphDB {
         } catch (ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-
+        addEdges();
         clean();
     }
 
 
-    void addNode(long index, double longitude, double latitude){
-        nodes.put(index, new Node(index, longitude, latitude));
+    void addNode(long index, double longitude, double latitude, String name){
+        nodes.put(index, new Node(index, longitude, latitude, name));
+    }
+
+    void removeNode(long index){
+        nodes.remove(index);
     }
 
     void addEdge(long origin, long other){
@@ -116,7 +123,10 @@ public class GraphDB {
             adjacentList.get(e.originIndex).add(new WeightedEdge(nodes.get(e.originIndex), nodes.get(e.otherIndex)));
             adjacentList.get(e.otherIndex).add(new WeightedEdge(nodes.get(e.otherIndex), nodes.get(e.originIndex)));
         }
+        tempEdges = new Bag<>();
     }
+
+
 
     /**
      * Helper to process strings into their "cleaned" form, ignoring punctuation and capitalization.
@@ -135,10 +145,14 @@ public class GraphDB {
      */
     private void clean() {
         Set<Long> nodeSet = nodes.keySet();
+        Bag<Long> invalidNodes = new Bag<>();
         for (Long nodeIndex : nodeSet) {
             if (!adjacentList.containsKey(nodeIndex)) {
-                nodes.remove(nodeIndex);
+                invalidNodes.add(nodeIndex);
             }
+        }
+        for (Long invalidNodeIndex : invalidNodes){
+            removeNode(invalidNodeIndex);
         }
     }
 
@@ -251,7 +265,7 @@ public class GraphDB {
      */
     double lon(long v) {
         Node n = nodes.get(v);
-        return n.getLatitude();
+        return n.getLongitude();
     }
 
     /**
@@ -262,6 +276,6 @@ public class GraphDB {
      */
     double lat(long v) {
         Node n = nodes.get(v);
-        return n.getLongitude();
+        return n.getLatitude();
     }
 }
