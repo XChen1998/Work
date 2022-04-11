@@ -64,30 +64,28 @@ public class Rasterer {
             results.put("raster_lr_lat", rasterLrLat);
             results.put("depth", degree);
             results.put("query_success", true);
-            return results;
         } else {
-            results.put("render_grid", null);
+            String[][] renderGrid = {{"d0_x0_y0.png"}};
+            results.put("render_grid", renderGrid);
             results.put("raster_ul_lon", ULON);
             results.put("raster_lr_lon", LLON);
             results.put("raster_ul_lat", ULAT);
             results.put("raster_lr_lat", LLAT);
-            results.put("depth", null);
+            results.put("depth", 0);
             results.put("query_success", false);
-            return results;
         }
+        for (String[] ss : (String[][]) results.get("render_grid")){
+            for (String s: ss){
+                System.out.println(s);
+            }
+
+        }
+        System.out.println(results);
+        return results;
     }
 
     private static boolean checkOutline(double a, double b, double c, double d) {
-        if (a < ULON) {
-            return false;
-        }
-        if (b < LLAT) {
-            return false;
-        }
-        if (c > LLON) {
-            return false;
-        }
-        if (d > ULAT) {
+        if (a < ULON && b < LLAT && c > LLON && d > ULAT) {
             return false;
         }
         return true;
@@ -111,17 +109,17 @@ public class Rasterer {
         Deque<Integer> lonList = new ArrayDeque<>();
         Deque<Integer> latList = new ArrayDeque<>();
         int maxPicIndex = (int) Math.pow(2, degree);
-        for (int i = 0; i <= maxPicIndex; i++) {
+        for (int i = 0; i < maxPicIndex; i++) {
             double lon = index2lonCoordinate(i, degree);
-            if (ullon <= lon && lon <= lrlon) {
+            if (ullon < lon && lon < lrlon) {
                 lonList.add(i);
             }
-            if (ullon >= lon && lrlon <= index2lonCoordinate(i + 1, degree)) {
+            if (i + 1 < maxPicIndex && ullon >= lon && lrlon <= index2lonCoordinate(i + 1, degree)) {
                 lonList.add(i);
                 lonFlag = false;
             }
         }
-        if (lonFlag) {
+        if (lonFlag && !lonList.contains(0)) {
             if (lonList.peek() != null) {
                 lonList.addFirst(lonList.peek() - 1);
             } else {
@@ -133,12 +131,12 @@ public class Rasterer {
             if (ullat >= lat && lat >= lrlat) {
                 latList.add(i);
             }
-            if (ullat <= lat && lrlat >= index2latCoordinate(i + 1, degree)) {
+            if (i + 1 < maxPicIndex && ullat <= lat && lrlat >= index2latCoordinate(i + 1, degree)) {
                 latList.add(i);
                 latFlag = false;
             }
         }
-        if (latFlag) {
+        if (latFlag && !lonList.contains(maxPicIndex)) {
             if (latList.peek() != null) {
                 latList.push(latList.peek() - 1);
             } else {
