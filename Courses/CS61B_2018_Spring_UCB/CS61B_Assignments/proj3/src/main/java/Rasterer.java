@@ -53,10 +53,12 @@ public class Rasterer {
      */
     public Map<String, Object> getMapRaster(Map<String, Double> params) {
         Map<String, Object> results = new HashMap<>();
-        System.out.println(params);
-        if (checkOutline(params.get("ullon"), params.get("lrlat"), params.get("lrlon"), params.get("ullat"))) {
+        //System.out.println(params);
+        if (checkOutline(params.get("ullon"), params.get("lrlat"),
+                params.get("lrlon"), params.get("ullat"))) {
             int degree = getDegree(params.get("ullon"), params.get("lrlon"), params.get("w"));
-            String[][] renderGrid = getPictureList(params.get("ullon"), params.get("lrlon"), params.get("ullat"), params.get("lrlat"), degree);
+            String[][] renderGrid = getPictureList(params.get("ullon"), params.get("lrlon"),
+                    params.get("ullat"), params.get("lrlat"), degree);
             results.put("render_grid", renderGrid);
             results.put("raster_ul_lon", rasterUlLon);
             results.put("raster_lr_lon", rasterLrLon);
@@ -65,6 +67,7 @@ public class Rasterer {
             results.put("depth", degree);
             results.put("query_success", true);
         } else {
+            System.out.println("Out!");
             String[][] renderGrid = {{"d0_x0_y0.png"}};
             results.put("render_grid", renderGrid);
             results.put("raster_ul_lon", ULON);
@@ -74,18 +77,18 @@ public class Rasterer {
             results.put("depth", 0);
             results.put("query_success", false);
         }
-        for (String[] ss : (String[][]) results.get("render_grid")){
-            for (String s: ss){
+        /*for (String[] ss : (String[][]) results.get("render_grid")) {
+            for (String s : ss) {
                 System.out.println(s);
             }
 
-        }
+        }*/
         System.out.println(results);
         return results;
     }
 
-    private static boolean checkOutline(double a, double b, double c, double d) {
-        if (a < ULON && b < LLAT && c > LLON && d > ULAT) {
+    private static boolean checkOutline(double uLon, double lLat, double lLon, double uLat) {
+        if (lLon <= ULON || uLat <= LLAT || uLon >= LLON || lLat >= ULAT) {
             return false;
         }
         return true;
@@ -103,7 +106,8 @@ public class Rasterer {
         return degree;
     }
 
-    private static String[][] getPictureList(double ullon, double lrlon, double ullat, double lrlat, int degree) {
+    private static String[][] getPictureList(double ullon, double lrlon,
+                                             double ullat, double lrlat, int degree) {
         boolean lonFlag = true;
         boolean latFlag = true;
         Deque<Integer> lonList = new ArrayDeque<>();
@@ -114,7 +118,7 @@ public class Rasterer {
             if (ullon < lon && lon < lrlon) {
                 lonList.add(i);
             }
-            if (i + 1 < maxPicIndex && ullon >= lon && lrlon <= index2lonCoordinate(i + 1, degree)) {
+            if (ullon >= lon && lrlon <= index2lonCoordinate(i + 1, degree)) {
                 lonList.add(i);
                 lonFlag = false;
             }
@@ -131,12 +135,12 @@ public class Rasterer {
             if (ullat >= lat && lat >= lrlat) {
                 latList.add(i);
             }
-            if (i + 1 < maxPicIndex && ullat <= lat && lrlat >= index2latCoordinate(i + 1, degree)) {
+            if (ullat <= lat && lrlat >= index2latCoordinate(i + 1, degree)) {
                 latList.add(i);
                 latFlag = false;
             }
         }
-        if (latFlag && !lonList.contains(maxPicIndex)) {
+        if (latFlag && !latList.contains(0)) {
             if (latList.peek() != null) {
                 latList.push(latList.peek() - 1);
             } else {
@@ -157,9 +161,11 @@ public class Rasterer {
         }
 
         rasterUlLon = index2lonCoordinate(lonList.peek(), degree);
-        rasterLrLon = rasterUlLon + lonList.size() * Math.abs(ULON - LLON) / (int) Math.pow(2, degree);
+        rasterLrLon = rasterUlLon + lonList.size()
+                * Math.abs(ULON - LLON) / (int) Math.pow(2, degree);
         rasterUlLat = index2latCoordinate(latList.peek(), degree);
-        rasterLrLat = rasterUlLat - latList.size() * Math.abs(ULAT - LLAT) / (int) Math.pow(2, degree);
+        rasterLrLat = rasterUlLat - latList.size()
+                * Math.abs(ULAT - LLAT) / (int) Math.pow(2, degree);
         return pictureList;
 
     }
@@ -181,5 +187,4 @@ public class Rasterer {
         System.out.println(index2lonCoordinate(96, 7));
         System.out.println(index2latCoordinate(85, 7));
     }
-
 }
