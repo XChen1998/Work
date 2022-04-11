@@ -98,7 +98,7 @@ public class GraphBuildingHandler extends DefaultHandler {
             String k = attributes.getValue("k");
             String v = attributes.getValue("v");
             if (k.equals("maxspeed")) {
-                double maxspeed = Double.parseDouble("k");
+                double maxspeed;
             } else if (k.equals("highway")) {
                 if (ALLOWED_HIGHWAY_TYPES.contains(v)) {
                     flag = true;

@@ -9,6 +9,7 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.util.HashMap;
 import java.util.Set;
+import java.util.ArrayList;
 
 /**
  * Graph for storing all of the intersection (vertex) and road (edge) information.
@@ -174,9 +175,8 @@ public class GraphDB {
      * @return An iterable of the ids of the neighbors of v.
      */
     Iterable<Long> adjacent(long v) {
-        Bag<WeightedEdge> adjacentEdges = adjacentList.get(v);
-        Bag<Long> adjacent = new Bag<>();
-        for (WeightedEdge e : adjacentEdges) {
+        ArrayList<Long> adjacent = new ArrayList<>();
+        for (WeightedEdge e : adjacentList.get(v)) {
             adjacent.add(e.other.getIndex());
         }
         return adjacent;
@@ -278,5 +278,9 @@ public class GraphDB {
     double lat(long v) {
         Node n = nodes.get(v);
         return n.getLatitude();
+    }
+
+    Node index2Node(long index) {
+        return nodes.get(index);
     }
 }
