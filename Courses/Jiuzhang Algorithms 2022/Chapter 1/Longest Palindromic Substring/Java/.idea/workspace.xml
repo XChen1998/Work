@@ -2,30 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55eeaa12-f0ec-4d6f-81f1-36303011a933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Longest Palindromic Substring.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CentreMethod2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DPMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MySolution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestLPS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab12/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab12/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab13/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab13/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Longest Palindromic Substring.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Longest Palindromic Substring/CentreMethod2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Longest Palindromic Substring/MySolution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/Longest Palindromic Substring/TestLPS.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/CentreMethod2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/MySolution.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/TestLPS.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/DPVersion1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/MyStupidSolution.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/TestLPS.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/DPVersion1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/MyStupidSolution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/RecursiveMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/TestLPS.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +79,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
