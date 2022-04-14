@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="196118c7-2a34-4645-96ae-d2574175e28b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Implement strStr().iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RKAlgs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/StrStrTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TraverseMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence 516'/Java/Java.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Substring 5'/.idea/Longest Palindromic Substring 5'.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Substring 5'/Java/Longest Palindromic Substring.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/Java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/DPVersion1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/MyStupidSolution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/RecursiveMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/out/production/Java/TestLPS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/DPVersion1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/MyStupidSolution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/RecursiveMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Subsequence/Java/src/TestLPS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/Longest Palindromic Substring.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/out/production/Longest Palindromic Substring/CentreMethod2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/out/production/Longest Palindromic Substring/DPMethod.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/out/production/Longest Palindromic Substring/MySolution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/out/production/Longest Palindromic Substring/TestLPS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/src/CentreMethod2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/src/DPMethod.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/src/MySolution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring/Java/src/TestLPS.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="27nkN5afJZRG8wF6sIGnIKoWW4i" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.6034483" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
+  </component>
+  <component name="RunManager" selected="Application.StrStrTest">
+    <configuration name="StrStrTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StrStrTest" />
+      <module name="Implement strStr()" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
+      <module name="Implement strStr()" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.StrStrTest" />
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="196118c7-2a34-4645-96ae-d2574175e28b" name="Changes" comment="" />
+      <created>1649962399394</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1649962399394</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
