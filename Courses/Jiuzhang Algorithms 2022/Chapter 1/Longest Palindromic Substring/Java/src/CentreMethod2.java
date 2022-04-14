@@ -23,9 +23,10 @@ public class CentreMethod2 {
         return longestPalindrome;
 
     }
-    private String isPalindromic(String s, int leftPos, int rightPos){
-        while (leftPos >= 0 && rightPos < s.length()){
-            if (s.charAt(leftPos) != s.charAt(rightPos)){
+
+    private String isPalindromic(String s, int leftPos, int rightPos) {
+        while (leftPos >= 0 && rightPos < s.length()) {
+            if (s.charAt(leftPos) != s.charAt(rightPos)) {
                 break;
             }
             leftPos--;

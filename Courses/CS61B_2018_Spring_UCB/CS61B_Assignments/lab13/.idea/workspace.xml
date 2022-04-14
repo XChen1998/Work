@@ -2,18 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a61da268-363f-491e-8c30-58f8f39ee3b8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/out/production/Longest Palindromic Substring/CentreMethod2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/out/production/Longest Palindromic Substring/MySolution.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/out/production/Longest Palindromic Substring/TestLPS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/src/CentreMethod2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/src/MySolution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/src/TestLPS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/Java/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab12/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab12/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/Longest Palindromic Substring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/Longest Palindromic Substring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/Longest Palindromic Substring.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/out/production/Longest Palindromic Substring/CentreMethod2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/out/production/Longest Palindromic Substring/MySolution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/out/production/Longest Palindromic Substring/TestLPS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/src/CentreMethod2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/src/MySolution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Jiuzhang Algorithms 2022/Chapter 1/Longest Palindromic Substring/src/TestLPS.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

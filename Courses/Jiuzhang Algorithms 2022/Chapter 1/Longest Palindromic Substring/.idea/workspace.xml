@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="66753b71-4f76-4474-9e48-2d47aa70c939" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/out/production/Longest Palindromic Substring/CentreMethod2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Longest Palindromic Substring/MySolution.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Longest Palindromic Substring/TestLPS.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CentreMethod2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MySolution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestLPS.java" afterDir="false" />
+    <list default="true" id="b7c87e68-f919-473d-9e80-cb6512cb2170" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab12/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab12/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab13/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../CS61B_2018_Spring_UCB/CS61B_Assignments/lab13/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Longest Palindromic Substring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Longest Palindromic Substring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Longest Palindromic Substring.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Longest Palindromic Substring/CentreMethod2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Longest Palindromic Substring/MySolution.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Longest Palindromic Substring/TestLPS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CentreMethod2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MySolution.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestLPS.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="ProjectId" id="27k1gXFYo1rTy1DX6Bt25BfmSat" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -38,45 +34,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15429688" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
-  </component>
-  <component name="RunManager">
-    <configuration name="TestLPS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TestLPS" />
-      <module name="Longest Palindromic Substring" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.TestLPS" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="66753b71-4f76-4474-9e48-2d47aa70c939" name="Changes" comment="" />
-      <created>1649842185870</created>
+      <changelist id="b7c87e68-f919-473d-9e80-cb6512cb2170" name="Changes" comment="" />
+      <created>1649849383043</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1649842185870</updated>
+      <updated>1649849383043</updated>
     </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
