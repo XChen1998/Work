@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="196118c7-2a34-4645-96ae-d2574175e28b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/Gas Station.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/src/GreedyMethod.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/src/TestGS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Gas Station 134‘/Java/src/TraverseMethod.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Longest Palindromic Subsequence 516'/Java/src/DPVersion1dot1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
