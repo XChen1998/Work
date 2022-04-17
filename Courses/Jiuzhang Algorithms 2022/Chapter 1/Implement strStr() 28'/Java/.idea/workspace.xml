@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="196118c7-2a34-4645-96ae-d2574175e28b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Longest Palindromic Substring 5'/Java/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Longest Palindromic Substring 5'/Java/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../LeetCode &amp; LintCode Notes.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../LeetCode &amp; LintCode Notes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TraverseMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TraverseMethod.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
