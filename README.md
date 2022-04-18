@@ -11,5 +11,4 @@ Copyright Statement: This repository includes many materials from other institut
 ## Courses
 The courses directory holds many materials of useful courses. 
 * Data Structure (Java Based), CS61B 2018 Spring@UC, Berkeley;
-* Jiuzhang Algorithms 2022 (Algorithm Design & LeetCode), 九章算法 2022版@Jiuzhang; 
-* Jiuzhang System Design (System Design), 九章算法 程序设计@Jiuzhang
+
