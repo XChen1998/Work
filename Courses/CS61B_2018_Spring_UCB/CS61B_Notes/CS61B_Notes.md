@@ -2,7 +2,7 @@
 
 # The Notes of CS61B Spring 2018@UC, Berkeley 
 
-Author: Xinghe Chen, MSCS@Columbia University in the City of New York '23, xinghe.c at columbia.edu
+Author: Ziggy(Ruofan) Chen, MSCS@Columbia University in the City of New York '23, xinghe.c at columbia.edu
 
 Nov. 2021
 
