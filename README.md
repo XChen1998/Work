@@ -2,7 +2,7 @@
 
 **Feb 21 2022: Now everything of the course CS61B@UCB has been well-organised. Hundreds of commitments disappear as the workspace has been moved and old repositories have been merged. This is a brand-new start, just move on and keep the faith.** This reporsitory is created to hold the codes and materials related to job-hunting. 
 
-Copyright Statement: This repository includes many materials from other institutions or universities. Please note this is for personal use only, any kind of re-distribution for business purpose is strictly prohibited. However, most of the materials are not just copy-paste works, many efforts have been made to improve the quality of these notes and codes. If any bug or error is identified, please contact the author, Xinghe C, Department of Computer Science, Columbia University. (xinghe.c at columbia.edu)
+Copyright Statement: This repository includes many materials from other institutions or universities. Please note this is for personal use only, any kind of re-distribution for business purpose is strictly prohibited. However, most of the materials are not just copy-paste works, many efforts have been made to improve the quality of these notes and codes. If any bug or error is identified, please contact the author, Ziggy (Ruofan) C, Department of Computer Science, Columbia University. (xinghe.c at columbia.edu)
 
 
 
