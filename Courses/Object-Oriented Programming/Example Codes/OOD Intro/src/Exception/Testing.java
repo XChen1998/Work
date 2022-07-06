@@ -1,7 +1,7 @@
 package Exception;
 
 public class Testing {
-    public void test() {
+    public void test(){
         try {
             boolean flag = true;
             if (flag) {
@@ -11,4 +11,6 @@ public class Testing {
             System.out.println(ex.getMessage());
         }
     }
+
+
 }

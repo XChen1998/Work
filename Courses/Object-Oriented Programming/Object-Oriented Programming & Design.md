@@ -280,3 +280,103 @@ public class Testing {
 
 
 
+In the main function, we create an `Testing` object and call the `test` method, which returns `Oh my!`.
+
+```Java
+package Exception;
+
+public class Main {
+    public static void main(String[] args) {
+        Testing t = new Testing();
+        t.test();
+    }
+}
+```
+
+
+
+In general, we may define that a function may throw exceptions as follows:
+
+```Java
+package Exception;
+
+public class Testing2 {
+
+    public void test() throws MyException {
+        boolean flag = true;
+        if (flag) {
+            throw new MyException("Oh my 2!");
+        }
+    }
+
+    public void test1() throws MyException {
+        this.test();
+    }
+
+    public void testWrong() {
+        // this.test(); does not work!
+    }
+    
+    public void testHandle() {
+        try {
+            this.test();
+        } catch (MyException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+```
+
+
+
+We may handle the exception in any method that call that method or just add the same `throws MyException`. Both of them works fine.
+
+
+
+### 2. `enum` Classes
+
+This is just a superficial example of `enum` classes (枚举变量)
+
+```Java
+package Enum;
+
+public class ColumbiaCommunity {
+
+    public enum People {
+        Staff, Student, Alumni
+    }
+
+    public static void main(String[] args) {
+        People alu = People.Alumni;
+        People stu = People.Student;
+        People Sta = People.Staff;
+    }
+}
+```
+
+If we know that there are certain instances that may happen, we can pre-define them in the `enum` function.
+
+
+
+## III. Who should learn about OOP?
+
+The main difference between OOP and system design is listed below:
+
+|                 |              OOP               |             System Design              |
+| :-------------: | :----------------------------: | :------------------------------------: |
+| The interviewee | SDE I or below, new graduates  | above SDE I, experienced interviewees  |
+|    ,Objects     | General Capability Examination |   Examination for specific services    |
+|    Companies    |       Amazon, Uber, etc.       | Meta, Twitter (social media companies) |
+|   Philosophy    |           Viability            |              Scalability               |
+|     Example     |   Design an elevator system    |             Design Twitter             |
+
+
+
+In general, beginners should learn more about OOP as their first step to SDE job hunting. It is not very likely that you will see OOP questions during a phone interview, whereas it is more popular during an onsite interview. 
+
+
+
+OOP interviews are sometimes much more important compared with algorithm interviews as some companies may grant OOP questions veto power. Companies including Amazon, Bloomberg, TripAdvisor, EMC, Uber, etc. usually have OOP questions during an onsite interview.
+
+
+
