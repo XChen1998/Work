@@ -229,15 +229,54 @@ public class Main {
 
 
 
-
-
 ## II. Exceptions & `enum` Classes
 
+### 1. Exceptions
 
+There are two types of exceptions in Java:
+
+* Checked exceptions, which usually are compile-time exceptions or IO exceptions
+* Unchecked exceptions, which are runtime exceptions (e.g. null pointer exceptions)
 
  
 
+So how do we handel exceptions in OOP? See the following example for your reference:
 
+
+
+We can create a very basic exception class that extends the Java `Excpetion` class and define its constructor as follows:
+
+```Java
+package Exception;
+
+public class MyException extends Exception{
+    public MyException(String s) {
+        super(s);
+    }
+}
+
+```
+
+
+
+Than we write a `Testing` class which always throw a new `MyException` with the error message `Oh my!`:
+
+```Java
+package Exception;
+
+public class Testing {
+    public void test() {
+        try {
+            boolean flag = true;
+            if (flag) {
+                throw new MyException("Oh my!");
+            }
+        } catch (MyException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+}
+```
 
 
 
