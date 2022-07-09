@@ -380,3 +380,17 @@ OOP interviews are sometimes much more important compared with algorithm intervi
 
 
 
+## IV. The Basic Philoshophy of OOP (S.O.L.I.D Principles)
+
+
+
+### 1. Single Responsibility Principle
+
+A class should only be changed when there is a certain appropriate reason. That is, a class should be responsible for a work exactlly, and there is not other reasons to change the class.
+
+
+
+For example, if there is a
+
+
+
