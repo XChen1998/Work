@@ -390,7 +390,55 @@ A class should only be changed when there is a certain appropriate reason. That 
 
 
 
-For example, if there is a
+For example, if there is a `ColumbiaGPACalculator` class shown as follows: 
+
+```Java
+package OOP_Principles;
+
+public class ColumbiaGPACalculator {
+    private float GPA;
+
+    public float getGPA() {
+        return this.GPA;
+    }
+
+    public void calculateGPA(Student s) {
+        this.GPA = s.getGPA();
+    }
+
+    /*This is wrong*/
+//    public void printGPAInJson() {
+//        // Some code here
+//    }
+}
+
+```
+
+If we want to add a function called `printGPAInJson`, then we should not make it inside the GPA calculator. Because the calculator itself is only responsible for calculating GPA. Nothing more!
 
 
+
+What we should do instead is to add a `Printer` class that is responsible for visulisation stuffs.
+
+```Java
+package OOP_Principles;
+
+public class Printer {
+    public void printInJson(float number) {
+        /*Some code here.*/
+    }
+
+    public void printInHTML(float number) {
+        /*Some code here.*/
+    }
+
+}
+
+```
+
+
+
+### 2. Open Close Principle
+
+The *Open Close Principle* 
 
