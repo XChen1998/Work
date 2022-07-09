@@ -499,6 +499,66 @@ We can add as many major-specific student class as we wish to extend the functio
 
 
 
+### 3. Liskow Substitution Principle
+
+> *[Reference link.](https://blog.knoldus.com/what-is-liskov-substitution-principle-lsp-with-real-world-examples/#:~:text=Simply%20put%2C%20the%20Liskov%20Substitution,the%20objects%20of%20our%20superclass.)*
+>
+> Simply put, the **Liskov Substitution Principle (LSP)** states that objects of a superclass should be replaceable with objects of its subclasses without breaking the application. 
+>
+> In other words, what we want is to have the objects of our subclasses behaving the same way as the objects of our superclass.
+
+
+
+This is rather abstract and hard to understand, but we make it easier by using some examples:
+
+
+
+**Good Exmaples:**
+
+* You make the `PhysicsStudent` class as a sub-class of the `Student` class;
+* You make the `CSStudent` class as a sub-class of the `Student` class.
+
+
+
+**Bad Examples**:
+
+* You make a `ColumbiaAlumni` class a sub-class of the `Student` class;
+* You mkae a `ColumbiaStaff` class a sub-class of the `Student` class.
+
+
+
+### 4. Interface Segregation Principle
+
+That is, we should never let a class to implement an interface that does not belong to it. Very simple, we can make `ColumbiaEmployee extends Employee implements Research, Teaching` but we can not let it implemnt `Student` interface. Because Columbia employees do not have a `getGPA` method in general, as they do not have GPA at all.
+
+
+
+Again, interface is a contract, you should be aware of what job you can find for for your pathetic class, or equivalently, employee.
+
+
+
+### 5. Dependency Inversion Principle
+
+> [*Reference link.*](https://dev.to/tamerlang/understanding-solid-principles-dependency-inversion-1b0f#:~:text=The%20Dependency%20Inversion%20Principle%20(DIP,Details%20should%20depend%20upon%20abstractions.))
+>
+>  The Dependency Inversion Principle (DIP) states that high-level modules should not depend on low-level modules; both should depend on abstractions. Abstractions should not depend on details. Details should depend upon abstractions.
+
+
+
+Again, rahter abstract to understand, let us make it human readable: 
+
+
+
+For example we have a `ColumbiaCommunity` interface, and we make `ColumbiaEmployee` and `Student` implemnt the interface so that we can realise `createConnection`, `goToColumbiaBuilding`, etc. functions. And we make `PhysicsStudent` and `CSStudent` as sub-class of `Student`. Looks good! But how we design the details of the low-level classes should be depents purely on the abstractions of high-level stuffs. We should make sure that `ColumbiaCommunity` works exactlly the same way no matter how we change the `CSStudent` class, because `CSStudent` class is low-level details.
+
+
+
+**The key philosophy of this principle is to lower the coupling of our program.**
+
+
+
+
+
 
 
 
