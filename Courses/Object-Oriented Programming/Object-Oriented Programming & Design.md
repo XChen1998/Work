@@ -411,7 +411,6 @@ public class ColumbiaGPACalculator {
 //        // Some code here
 //    }
 }
-
 ```
 
 If we want to add a function called `printGPAInJson`, then we should not make it inside the GPA calculator. Because the calculator itself is only responsible for calculating GPA. Nothing more!
@@ -433,12 +432,74 @@ public class Printer {
     }
 
 }
-
 ```
 
 
 
 ### 2. Open Close Principle
 
-The *Open Close Principle* 
+The *Open Close Principle* can be explained as **open to extension and close to modification**. In the above-mentioned example, we make a `Student` variable as input argument so that the GPA calculator is very easy to be extended. The class hierarchy is shown below:
+
+
+
+An interface namely `Student`:
+
+```Java
+package OOP_Principles;
+
+public interface Student {
+    float getGPA();
+    void printName();
+}
+```
+
+
+
+Two specific student classes that implments the interface:
+
+```Java
+package OOP_Principles;
+
+public class PhysicsStudent implements Student{
+    private float physicsGPA;
+
+    @Override
+    public float getGPA() {
+        return physicsGPA;
+    }
+
+    @Override
+    public void printName() {
+        /*Some code.*/
+    }
+}
+```
+
+```Java
+package OOP_Principles;
+
+public class CSStudent implements Student {
+    private float CSGPA;
+
+    @Override
+    public float getGPA() {
+        return CSGPA;
+    }
+
+    @Override
+    public void printName() {
+        /*Some code here.*/
+    }
+}
+```
+
+
+
+We can add as many major-specific student class as we wish to extend the function of our GPA calculator, but we do not need to modify the `ColumbiaGPACalculator` itself.
+
+
+
+
+
+
 
