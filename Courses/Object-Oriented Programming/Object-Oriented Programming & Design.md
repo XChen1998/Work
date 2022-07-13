@@ -349,7 +349,7 @@ public class ColumbiaCommunity {
     public static void main(String[] args) {
         People alu = People.Alumni;
         People stu = People.Student;
-        People Sta = People.Staff;
+        People sta = People.Staff;
     }
 }
 ```
@@ -365,7 +365,7 @@ The main difference between OOP and system design is listed below:
 |                 |              OOP               |             System Design              |
 | :-------------: | :----------------------------: | :------------------------------------: |
 | The interviewee | SDE I or below, new graduates  | above SDE I, experienced interviewees  |
-|    ,Objects     | General Capability Examination |   Examination for specific services    |
+|     Objects     | General Capability Examination |   Examination for specific services    |
 |    Companies    |       Amazon, Uber, etc.       | Meta, Twitter (social media companies) |
 |   Philosophy    |           Viability            |              Scalability               |
 |     Example     |   Design an elevator system    |             Design Twitter             |
